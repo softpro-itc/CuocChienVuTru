@@ -30,6 +30,7 @@ namespace CuocChienVuTru
             graphics.PreferredBackBufferHeight = 600;
             graphics.PreferredBackBufferWidth = 800;
             graphics.ApplyChanges();
+            IsMouseVisible = true;
             base.Initialize();
         }
 

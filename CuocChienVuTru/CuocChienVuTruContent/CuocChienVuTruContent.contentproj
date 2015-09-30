@@ -194,7 +194,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\Background\Help.png">
+    <Compile Include="Images\Background\Help.jpg">
       <Name>Help</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
