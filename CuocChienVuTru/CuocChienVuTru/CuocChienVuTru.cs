@@ -17,6 +17,8 @@ namespace CuocChienVuTru
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        public Scene.SceneManager sceneManager;
+
         public CuocChienVuTru()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -25,14 +27,22 @@ namespace CuocChienVuTru
 
         protected override void Initialize()
         {
-
+            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.ApplyChanges();
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            Services.AddService(typeof(SpriteBatch), spriteBatch);
 
+            //Background.Background bacground = new Background.Background(this);
+            //Components.Add(bacground);
+           
+            sceneManager = new Scene.SceneManager(this);
+            Components.Add(sceneManager);
         }
 
  
