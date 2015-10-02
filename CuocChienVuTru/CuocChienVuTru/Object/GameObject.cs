@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using CuocChienVuTru.Helper;
 
 
 namespace CuocChienVuTru.Object
@@ -23,7 +24,7 @@ namespace CuocChienVuTru.Object
         protected SpriteBatch spriteBatch;
         protected SpriteFont spriteFont;
         protected CuocChienVuTru game;
-        protected KeyboardState keyboard;
+        protected Input input;
         #endregion
 
         #region propeties
@@ -62,6 +63,7 @@ namespace CuocChienVuTru.Object
             this.speed = speed;
             spriteBatch = (SpriteBatch)game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
             spriteFont = (SpriteFont)game.Services.GetService(typeof(SpriteFont)) as SpriteFont;
+            input = (Input)game.Services.GetService(typeof(Input)) as Input;
         }
 
 

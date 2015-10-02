@@ -22,6 +22,13 @@ namespace CuocChienVuTru.Helper
             curKeyboard = Keyboard.GetState();
         }
 
+        public bool Press(Keys key)
+        {
+            if (curKeyboard.IsKeyDown(key))
+                return true;
+            return false;
+        }
+
         public bool Release(Keys key)
         {
             if (curKeyboard.IsKeyDown(key) && preKeyboard.IsKeyUp(key))

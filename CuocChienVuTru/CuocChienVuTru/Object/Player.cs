@@ -37,9 +37,7 @@ namespace CuocChienVuTru.Object
 
         public override void Update(GameTime gameTime)
         {
-            keyboard = Keyboard.GetState();
-
-            if (keyboard.IsKeyDown(Keys.Escape))
+            if (input.Press(Keys.Escape))
             {
                 game.sceneManager.ShowScene(game.sceneManager.pause);
             }
@@ -47,18 +45,18 @@ namespace CuocChienVuTru.Object
             {
 
                 //kiem tra di chuyen
-                if (keyboard.IsKeyDown(Keys.Up) && position.Y > 0)
+                if (input.Press(Keys.Up) && position.Y > 0)
                     position.Y -= speed;
-                if (keyboard.IsKeyDown(Keys.Down) && position.Y < game.height - texture.Height)
+                if (input.Press(Keys.Down) && position.Y < game.height - texture.Height)
                     position.Y += speed;
-                if (keyboard.IsKeyDown(Keys.Left) && position.X > -texture.Width / 2)
+                if (input.Press(Keys.Left) && position.X > -texture.Width / 2)
                     position.X -= speed;
-                if (keyboard.IsKeyDown(Keys.Right) && position.X < game.width - texture.Width / 2)
+                if (input.Press(Keys.Right) && position.X < game.width - texture.Width / 2)
                     position.X += speed;
 
                 //kiem tra ban dan
                 timeTmp += gameTime.ElapsedGameTime.Milliseconds;
-                if (keyboard.IsKeyDown(Keys.Space))
+                if (input.Press(Keys.Space))
                 {
                     if (timeTmp >= timeAddBullet)
                     {
