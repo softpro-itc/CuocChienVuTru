@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -16,8 +16,13 @@ namespace CuocChienVuTru
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        SpriteFont spriteFont;
 
         public Scene.SceneManager sceneManager;
+
+        //kích thước màn hình game
+        public int width = 800;
+        public int height = 600;
 
         public CuocChienVuTru()
         {
@@ -27,10 +32,12 @@ namespace CuocChienVuTru
 
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferHeight = 600;
-            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = height;
+            graphics.PreferredBackBufferWidth = width;
             graphics.ApplyChanges();
             IsMouseVisible = true;
+
+            Window.Title = "Cuoc Chien Vu Tru";
             base.Initialize();
         }
 
@@ -38,6 +45,9 @@ namespace CuocChienVuTru
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Services.AddService(typeof(SpriteBatch), spriteBatch);
+
+            spriteFont = Content.Load<SpriteFont>(@"Font\SpriteFontUnicode");
+            Services.AddService(typeof(SpriteFont), spriteFont);
 
             //Background.Background bacground = new Background.Background(this);
             //Components.Add(bacground);

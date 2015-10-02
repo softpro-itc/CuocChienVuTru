@@ -167,14 +167,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\Bullet\" />
     <Folder Include="Images\Effect\" />
     <Folder Include="Images\Enemy\" />
     <Folder Include="Sound\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\Player\palyer.png">
-      <Name>palyer</Name>
+    <Compile Include="Images\Player\player.png">
+      <Name>player</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -196,6 +195,20 @@
   <ItemGroup>
     <Compile Include="Images\Background\Help.jpg">
       <Name>Help</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Font\SpriteFontUnicode.spritefont">
+      <Name>SpriteFontUnicode</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Bullet\bullet.png">
+      <Name>bullet</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

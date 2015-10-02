@@ -25,7 +25,6 @@ E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Co
 E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Background\7.xnb
 E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Background\8.xnb
 E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Background\9.xnb
-E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Player\palyer.xnb
 E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\CuocChienVuTru.exe
 E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\CuocChienVuTru.pdb
 E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\obj\x86\Debug\CuocChienVuTru.csprojResolveAssemblyReference.cache
@@ -35,3 +34,6 @@ E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\obj\x86\Debug\Cu
 E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Background\Menu.xnb
 E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Font\SpriteFontMenu.xnb
 E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Background\Help.xnb
+E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Player\player.xnb
+E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Font\SpriteFontUnicode.xnb
+E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Bullet\bullet.xnb

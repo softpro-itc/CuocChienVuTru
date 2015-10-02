@@ -245,15 +245,6 @@
       <Time>2015-09-30T20:24:30.7623816+07:00</Time>
     </Item>
     <Item>
-      <Source>Images\Player\palyer.png</Source>
-      <Name>Images\Player\palyer</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Player\palyer.xnb</Output>
-      <Time>2015-09-30T20:26:41.5720309+07:00</Time>
-    </Item>
-    <Item>
       <Source>Images\Background\Menu.png</Source>
       <Name>Images\Background\Menu</Name>
       <Importer>TextureImporter</Importer>
@@ -279,6 +270,33 @@
       <Options>None</Options>
       <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Background\Help.xnb</Output>
       <Time>2015-09-30T21:24:30.9060222+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\player.png</Source>
+      <Name>Images\Player\player</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Player\player.xnb</Output>
+      <Time>2015-10-02T15:24:14.5288571+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Font\SpriteFontUnicode.spritefont</Source>
+      <Name>Font\SpriteFontUnicode</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Font\SpriteFontUnicode.xnb</Output>
+      <Time>2015-10-02T15:22:34.3191501+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Bullet\bullet.png</Source>
+      <Name>Images\Bullet\bullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Bullet\bullet.xnb</Output>
+      <Time>2015-10-02T15:25:30.2454032+07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

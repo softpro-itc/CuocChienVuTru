@@ -25,7 +25,9 @@ Content\Images\Background\6.xnb
 Content\Images\Background\7.xnb
 Content\Images\Background\8.xnb
 Content\Images\Background\9.xnb
-Content\Images\Player\palyer.xnb
 Content\Images\Background\Menu.xnb
 Content\Font\SpriteFontMenu.xnb
 Content\Images\Background\Help.xnb
+Content\Images\Player\player.xnb
+Content\Font\SpriteFontUnicode.xnb
+Content\Images\Bullet\bullet.xnb

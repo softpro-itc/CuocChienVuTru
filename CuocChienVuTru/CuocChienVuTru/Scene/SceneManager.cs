@@ -21,16 +21,19 @@ namespace CuocChienVuTru.Scene
         public List<GameScene> listScene;
         public StartScene start;
         public HelpScene help;
+        public Level1Scene level1Scene;
 
         public SceneManager(CuocChienVuTru game)
             : base(game)
         {
             start = new StartScene(game, game.Content.Load<Texture2D>(@"Images\Background\Menu"));
             help = new HelpScene(game, game.Content.Load<Texture2D>(@"Images\Background\Help"));
+            level1Scene = new Level1Scene(game, game.Content.Load<Texture2D>(@"Images\Background\1"));
             active = start;
             listScene = new List<GameScene>();
             listScene.Add(start);
             listScene.Add(help);
+            listScene.Add(level1Scene);
         }
 
 
