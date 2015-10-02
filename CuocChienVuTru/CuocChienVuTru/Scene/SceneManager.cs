@@ -20,6 +20,7 @@ namespace CuocChienVuTru.Scene
         public GameScene active;
         public List<GameScene> listScene;
         public StartScene start;
+        public PauseScene pause;
         public HelpScene help;
         public Level1Scene level1Scene;
 
@@ -29,9 +30,11 @@ namespace CuocChienVuTru.Scene
             start = new StartScene(game, game.Content.Load<Texture2D>(@"Images\Background\Menu"));
             help = new HelpScene(game, game.Content.Load<Texture2D>(@"Images\Background\Help"));
             level1Scene = new Level1Scene(game, game.Content.Load<Texture2D>(@"Images\Background\1"));
+            pause = new PauseScene(game, game.Content.Load<Texture2D>(@"Images\Background\Pause"));
             active = start;
             listScene = new List<GameScene>();
             listScene.Add(start);
+            listScene.Add(pause);
             listScene.Add(help);
             listScene.Add(level1Scene);
         }

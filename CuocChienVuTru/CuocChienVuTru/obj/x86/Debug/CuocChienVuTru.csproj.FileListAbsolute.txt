@@ -37,3 +37,4 @@ E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Co
 E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Player\player.xnb
 E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Font\SpriteFontUnicode.xnb
 E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Bullet\bullet.xnb
+E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Background\Pause.xnb

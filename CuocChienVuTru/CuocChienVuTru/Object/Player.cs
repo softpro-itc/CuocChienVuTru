@@ -38,44 +38,53 @@ namespace CuocChienVuTru.Object
         public override void Update(GameTime gameTime)
         {
             keyboard = Keyboard.GetState();
-            
-            //kiem tra di chuyen
-            if (keyboard.IsKeyDown(Keys.Up) && position.Y > 0)
-                position.Y -= speed;
-            if (keyboard.IsKeyDown(Keys.Down) && position.Y  < game.height - texture.Height)
-                position.Y += speed;
-            if (keyboard.IsKeyDown(Keys.Left) && position.X > - texture.Width/2)
-                position.X -= speed;
-            if (keyboard.IsKeyDown(Keys.Right) && position.X < game.width - texture.Width/2)
-                position.X += speed;
 
-            //kiem tra ban dan
-            timeTmp += gameTime.ElapsedGameTime.Milliseconds;
-            if(keyboard.IsKeyDown(Keys.Space))
+            if (keyboard.IsKeyDown(Keys.Escape))
             {
-                if(timeTmp >= timeAddBullet)
-                {
-                    timeTmp = 0;
-                    Texture2D t = game.Content.Load<Texture2D>(@"Images\Bullet\bullet");
-                    Bullet b = new Bullet(game, t, new Rectangle((int)position.X + texture.Width/2, (int)position.Y - t.Height, t.Width, t.Height), position, speedBulet, Bullet.Owner.player);
-                    Bullet c = new Bullet(game, t, new Rectangle((int)position.X + texture.Width, (int)position.Y - t.Height, t.Width, t.Height), position, speedBulet, Bullet.Owner.player);
-                    Bullet d = new Bullet(game, t, new Rectangle((int)position.X, (int)position.Y - t.Height, t.Width, t.Height), position, speedBulet, Bullet.Owner.player);
-                    listBullet.Add(b);
-                    listBullet.Add(c);
-                    listBullet.Add(d);
-                }
+                game.sceneManager.ShowScene(game.sceneManager.pause);
             }
-            //cap nhat vi tri nhan vat
-            bound.X = (int)position.X;
-            bound.Y = (int)position.Y;
-
-            //cap nhat dan
-            for (int i = 0; i < listBullet.Count; i++ )
+            else
             {
-                if (listBullet[i].Enabled)
-                    listBullet[i].Update(gameTime);
-                else
-                    listBullet.RemoveAt(i);
+
+                //kiem tra di chuyen
+                if (keyboard.IsKeyDown(Keys.Up) && position.Y > 0)
+                    position.Y -= speed;
+                if (keyboard.IsKeyDown(Keys.Down) && position.Y < game.height - texture.Height)
+                    position.Y += speed;
+                if (keyboard.IsKeyDown(Keys.Left) && position.X > -texture.Width / 2)
+                    position.X -= speed;
+                if (keyboard.IsKeyDown(Keys.Right) && position.X < game.width - texture.Width / 2)
+                    position.X += speed;
+
+                //kiem tra ban dan
+                timeTmp += gameTime.ElapsedGameTime.Milliseconds;
+                if (keyboard.IsKeyDown(Keys.Space))
+                {
+                    if (timeTmp >= timeAddBullet)
+                    {
+                        timeTmp = 0;
+                        Texture2D t = game.Content.Load<Texture2D>(@"Images\Bullet\bullet");
+                        Bullet b = new Bullet(game, t, new Rectangle((int)position.X + texture.Width / 2, (int)position.Y - t.Height, t.Width, t.Height), position, speedBulet, Bullet.Owner.player);
+                        Bullet c = new Bullet(game, t, new Rectangle((int)position.X + texture.Width, (int)position.Y - t.Height, t.Width, t.Height), position, speedBulet, Bullet.Owner.player);
+                        Bullet d = new Bullet(game, t, new Rectangle((int)position.X, (int)position.Y - t.Height, t.Width, t.Height), position, speedBulet, Bullet.Owner.player);
+                        listBullet.Add(b);
+                        listBullet.Add(c);
+                        listBullet.Add(d);
+                    }
+                }
+                //cap nhat vi tri nhan vat
+                bound.X = (int)position.X;
+                bound.Y = (int)position.Y;
+
+                //cap nhat dan
+                for (int i = 0; i < listBullet.Count; i++)
+                {
+                    if (listBullet[i].Enabled)
+                        listBullet[i].Update(gameTime);
+                    else
+                        listBullet.RemoveAt(i);
+                }
+
             }
             base.Update(gameTime);
         }

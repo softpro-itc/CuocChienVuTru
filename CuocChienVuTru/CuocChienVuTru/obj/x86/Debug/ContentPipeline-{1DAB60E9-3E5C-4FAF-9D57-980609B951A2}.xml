@@ -298,6 +298,15 @@
       <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Bullet\bullet.xnb</Output>
       <Time>2015-10-02T15:25:30.2454032+07:00</Time>
     </Item>
+    <Item>
+      <Source>Images\Background\Pause.png</Source>
+      <Name>Images\Background\Pause</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Background\Pause.xnb</Output>
+      <Time>2015-10-02T16:04:25.6962114+07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{1DAB60E9-3E5C-4FAF-9D57-980609B951A2}</ContentProjectGUID>
