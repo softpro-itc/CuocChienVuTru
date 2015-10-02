@@ -18,8 +18,7 @@ namespace CuocChienVuTru.Scene
 
         public override void Update(GameTime gameTime)
         {
-            keyboard = Keyboard.GetState();
-            if (keyboard.IsKeyDown(Keys.Escape))
+            if (input.Release(Keys.Escape))
                 game.sceneManager.ShowScene(game.sceneManager.start);
             base.Update(gameTime);
         }

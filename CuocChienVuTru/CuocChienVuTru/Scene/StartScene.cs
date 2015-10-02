@@ -44,16 +44,15 @@ namespace CuocChienVuTru.Scene
 
         public override void Update(GameTime gameTime)
         {
-            keyboard = Keyboard.GetState();
-            if (menu.curentIndex == 1 && keyboard.IsKeyDown(Keys.Enter))
+            if (menu.curentIndex == 1 && input.Release(Keys.Enter))
                 game.sceneManager.ShowScene(game.sceneManager.level1Scene);
 
-            if (menu.curentIndex == 3 && keyboard.IsKeyDown(Keys.Enter))
+            if (menu.curentIndex == 3 && input.Release(Keys.Enter))
             {
                game.sceneManager.ShowScene(game.sceneManager.help);
             }
 
-            if (menu.curentIndex == 4 && keyboard.IsKeyDown(Keys.Enter))
+            if (menu.curentIndex == 4 && input.Release(Keys.Enter))
                 game.Exit();
             base.Update(gameTime);
         }

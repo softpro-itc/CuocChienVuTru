@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using CuocChienVuTru.Helper;
 
 namespace CuocChienVuTru
 {
@@ -17,6 +18,8 @@ namespace CuocChienVuTru
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         SpriteFont spriteFont;
+
+        Input input;
 
         public Scene.SceneManager sceneManager;
 
@@ -49,6 +52,9 @@ namespace CuocChienVuTru
             spriteFont = Content.Load<SpriteFont>(@"Font\SpriteFontUnicode");
             Services.AddService(typeof(SpriteFont), spriteFont);
 
+            input = new Input();
+            Services.AddService(typeof(Input), input);
+
             //Background.Background bacground = new Background.Background(this);
             //Components.Add(bacground);
            
@@ -66,6 +72,8 @@ namespace CuocChienVuTru
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            //update keyboard
+            input.Update();
 
             base.Update(gameTime);
         }

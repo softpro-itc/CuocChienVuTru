@@ -75,6 +75,7 @@
     <Compile Include="Background\Background.cs" />
     <Compile Include="GUI\Button.cs" />
     <Compile Include="GUI\Menu.cs" />
+    <Compile Include="Helper\Input.cs" />
     <Compile Include="Object\Bullet.cs" />
     <Compile Include="Object\Enemy.cs" />
     <Compile Include="Object\GameObject.cs" />

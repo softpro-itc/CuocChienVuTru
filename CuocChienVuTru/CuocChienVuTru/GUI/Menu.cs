@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using CuocChienVuTru.Helper;
 
 namespace CuocChienVuTru.GUI
 {
@@ -16,16 +17,13 @@ namespace CuocChienVuTru.GUI
         public List<Button> listButton;
         public int curentIndex = 0;
 
-        KeyboardState keyboard;
-
-        int delay = 50;
-        int timeTmp = 0;
-        bool keyPress = false;
+        private Input input;
 
         public Menu(CuocChienVuTru game, List<Button> listButton)
             : base(game)
         {
             this.listButton = listButton;
+            input = (Input)game.Services.GetService(typeof(Input)) as Input;
         }
 
         /// <summary>
@@ -45,26 +43,19 @@ namespace CuocChienVuTru.GUI
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            keyboard = Keyboard.GetState();
-            if (keyboard.GetPressedKeys().Length > 0)
-                keyPress = true;
-            if (keyPress) timeTmp += gameTime.ElapsedGameTime.Milliseconds;
-            if (timeTmp >= delay)
-            {
-                if (keyboard.IsKeyDown(Keys.Up))
+
+            if (input.Release(Keys.Up))
                 {
                     listButton[curentIndex].status = Button.Status.wait;
                     curentIndex = (curentIndex - 1 < 0) ? listButton.Count - 1 : curentIndex - 1;
                     listButton[curentIndex].status = Button.Status.active;
                 }
-                else if (keyboard.IsKeyDown(Keys.Down))
+                else if (input.Release(Keys.Down))
                 {
                     listButton[curentIndex].status = Button.Status.wait;
                     curentIndex = (curentIndex + 1 == listButton.Count) ? 0 : curentIndex + 1;
                     listButton[curentIndex].status = Button.Status.active;
                 }
-                timeTmp = 0;
-            }
 
             base.Update(gameTime);
         }

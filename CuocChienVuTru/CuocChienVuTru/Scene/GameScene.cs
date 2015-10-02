@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
+using CuocChienVuTru.Helper;
 
 namespace CuocChienVuTru.Scene
 {
@@ -18,7 +19,7 @@ namespace CuocChienVuTru.Scene
         public GUI.Menu menu;
 
         protected CuocChienVuTru game;
-        protected KeyboardState keyboard;
+        protected Input input;
 
         public List<GameComponent> Components
         {
@@ -32,6 +33,7 @@ namespace CuocChienVuTru.Scene
             this.game = game;
             components = new List<GameComponent>();
             spritePatch = (SpriteBatch)game.Services.GetService(typeof(SpriteBatch)) as SpriteBatch;
+            input = (Input)game.Services.GetService(typeof(Input)) as Input;
             this.background = background;
             Visible = false;
             Enabled = false;
