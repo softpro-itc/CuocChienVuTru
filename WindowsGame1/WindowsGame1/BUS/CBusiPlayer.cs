@@ -20,6 +20,14 @@ namespace CuocChienVuTru.BUS
         private int timer = 0;
         private int inteval = 100;
         private Texture2D skinHealthBar;
+        private CBusiAnimation animation;
+        private Vector2 posCenter;
+
+        public Vector2 PosCenter
+        {
+            get { return new Vector2(position.X - animation.Rectangle.Width/2, position.Y - animation.Rectangle.Height/2); }
+            set { posCenter = value; }
+        }
             
         #endregion
 
@@ -50,6 +58,8 @@ namespace CuocChienVuTru.BUS
             score = 0;
             hp = 100;
             skinHealthBar = cglobal.Content.Load<Texture2D>("Images/Button/HealthBar");
+            animation = new CBusiAnimation(skin, position, 64, 64, 3, 1, true);
+            
         }
 
         public CBusiPlayer(Game1 game, Texture2D skin, Vector2 position, int speed, int damage, int life, int hp)
@@ -59,6 +69,7 @@ namespace CuocChienVuTru.BUS
             this.life = life;
             this.hp = hp;
             skinHealthBar = cglobal.Content.Load<Texture2D>("Images/Button/HealthBar");
+            animation = new CBusiAnimation(skin, position, 64, 64, 3, 1, true);
         }
 
         public CBusiPlayer(Game1 game, Texture2D skin, Vector2 position, int speed, int damage, int life, int hp, int score)
@@ -67,12 +78,15 @@ namespace CuocChienVuTru.BUS
             this.score = score;
             this.life = life;
             this.hp = hp;
+            animation = new CBusiAnimation(skin, position, 64, 64, 3, 1, true);
         }
         #endregion
 
         #region khai báo phương thức
         public override void Update(GameTime gameTime)
         {
+            bound.Width = animation.Rectangle.Width;
+
             input.Update();
             timer += gameTime.ElapsedGameTime.Milliseconds;
 
@@ -85,6 +99,9 @@ namespace CuocChienVuTru.BUS
 
             bound.X = (int)position.X;
             bound.Y = (int)position.Y;
+                                
+            animation.Update(gameTime);
+            animation.Position = position;
         }
 
         /// <summary>
@@ -113,7 +130,7 @@ namespace CuocChienVuTru.BUS
                 {
                     timer -= inteval;
                     Texture2D t = cglobal.Content.Load<Texture2D>(@"Images\Bullet\bullet_1");
-                    CBusiBullet b = new CBusiBullet(game, t, new Vector2(position.X+skin.Width/2, position.Y), 10, 3, CBusiBullet.Owner.player);
+                    CBusiBullet b = new CBusiBullet(game, t, new Vector2(position.X-animation.Rectangle.Width+skin.Width/2, position.Y), 10, 3, CBusiBullet.Owner.player);
                     listBullet.Add(b);
                     cglobal.sound.shot.Play();
                 }
@@ -149,7 +166,9 @@ namespace CuocChienVuTru.BUS
         public override void Draw(SpriteBatch spriteBatch)
         {
             DrawHeadBar(spriteBatch);
-            spriteBatch.Draw(skin, bound, Color.White);
+            //spriteBatch.Draw(skin, bound, Color.White);
+            spriteBatch.DrawString(cglobal.font, "currrent frame: " + (bound.X).ToString(), new Vector2(100, 50), Color.White);
+            animation.Draw(spriteBatch);
             foreach (CBusiBullet b in listBullet)
                 b.Draw(spriteBatch);
         }

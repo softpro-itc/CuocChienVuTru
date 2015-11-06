@@ -71,7 +71,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Item\star.xnb</Output>
-      <Time>2015-10-28T13:28:09.9511241+07:00</Time>
+      <Time>2015-11-06T15:16:46.2424545+07:00</Time>
     </Item>
     <Item>
       <Source>Images\Button\sound.png</Source>
@@ -218,6 +218,15 @@
       <Options>None</Options>
       <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Global\cursor.xnb</Output>
       <Time>2015-11-01T21:31:21.7982911+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\player_3.png</Source>
+      <Name>Images\Player\player_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Player\player_3.xnb</Output>
+      <Time>2015-11-06T15:24:07.2333869+07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

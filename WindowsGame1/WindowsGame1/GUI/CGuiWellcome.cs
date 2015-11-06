@@ -35,7 +35,7 @@ namespace CuocChienVuTru.GUI
             if(btnNewGame.IsClicked)
             {
                 Texture2D tmp = game.Content.Load<Texture2D>("Images/Background/space");
-                CBusiPlayer player = new CBusiPlayer(game, game.Content.Load<Texture2D>("Images/Player/player_2"), new Vector2(200, 400), 5, 2, 5, 100);
+                CBusiPlayer player = new CBusiPlayer(game, game.Content.Load<Texture2D>("Images/Player/player_3"), new Vector2(200, 400), 5, 2, 5, 100);
                 CBusiLevelBase level1 = new CBusiLevelBase(game, new CBusiBackground(tmp, 2), player);
                 game.gameSceneManager.ShowGameScene(level1);
             }
