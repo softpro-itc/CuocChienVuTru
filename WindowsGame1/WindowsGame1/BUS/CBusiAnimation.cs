@@ -83,47 +83,52 @@ namespace CuocChienVuTru.BUS
 
         public void Update(GameTime gameTime)
         {
-            if (!isAllowControl)
+            if (isVisible)
             {
-                if (life == 0)
+                if (!isAllowControl)
                 {
-                    isVisible = false;
-                    return;
+                    if (life == 0)
+                    {
+                        isVisible = false;
+                        return;
+                    }
                 }
-            }
 
-            //chuyển frame
-            timer += gameTime.ElapsedGameTime.Milliseconds;
-            if(timer >= interval)
-            {
-                if(!isAllowControl)
+                //chuyển frame
+                timer += gameTime.ElapsedGameTime.Milliseconds;
+                if (timer >= interval)
                 {
-                    currentFrame++;
-                    if (currentFrame > maxFrame - 1)
-                        currentFrame = 0;
-                }
-                else
-                {
-                    KeyboardState key = Keyboard.GetState();
-                    if (key.IsKeyDown(Keys.Left))
-                        currentFrame--;
-                    else if (key.IsKeyDown(Keys.Right))
+                    if (!isAllowControl)
+                    {
                         currentFrame++;
+                        if (currentFrame > maxFrame - 1)
+                            currentFrame = 0;
+                    }
                     else
-                        currentFrame = 1;
+                    {
+                        //cập nhật frame khi bấm phím
+                        KeyboardState key = Keyboard.GetState();
+                        if (key.IsKeyDown(Keys.Left))
+                            currentFrame--;
+                        else if (key.IsKeyDown(Keys.Right))
+                            currentFrame++;
+                        else
+                            currentFrame = 1;
 
-                    if (currentFrame < 0)
-                        currentFrame = 0;
-                    if (currentFrame > maxFrame-1)
-                        currentFrame = maxFrame -1;
+                        //giới hạn phạm vi của frame
+                        if (currentFrame < 0)
+                            currentFrame = 0;
+                        if (currentFrame > maxFrame - 1)
+                            currentFrame = maxFrame - 1;
+                    }
+
+                    timer -= interval;
+                    if (life > 0)
+                        life--;
                 }
 
-                timer -= interval;
-                if (life > 0)
-                    life--;
+                rectangle = new Rectangle(currentFrame * frameWidth, 0, frameWidth, frameHeight);
             }
-
-            rectangle = new Rectangle(currentFrame * frameWidth, 0, frameWidth, frameHeight);
         }
 
         public void Draw(SpriteBatch spriteBatch)

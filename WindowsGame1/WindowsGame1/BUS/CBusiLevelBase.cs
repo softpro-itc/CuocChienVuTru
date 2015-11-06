@@ -49,15 +49,23 @@ namespace CuocChienVuTru.BUS
             }
             else
             {
-                CheckCollision();
+                if (player.Hp == 0)
+                {
+                    player.Visible = false;
+                    player.Animation.isVisible = false;
+                }
+                else
+                {
+                    CheckCollision();
+                    player.Update(gameTime);
+                }
 
                 EnemyManager(gameTime);
 
                 ItemManager(gameTime);
-
-                player.Update(gameTime);
-
+                
                 EffectManager(gameTime);
+                              
             }
 
         }
@@ -81,7 +89,7 @@ namespace CuocChienVuTru.BUS
         private void ItemManager(GameTime gameTime)
         {
             timerItem += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-            //thêm đạn
+            //thêm item
             if (timerItem >= timeAddItem && listItem.Count <= maxItem)
             {
                 listItem.Add(new CBusiItem(game, cglobal.Content.Load<Texture2D>("Images/Item/star"), new Vector2(cglobal.random.Next(0, CGlobalVariable.WINDOW_HEIGHT), cglobal.random.Next(-100, 0)), 1, 2));
@@ -113,7 +121,7 @@ namespace CuocChienVuTru.BUS
             timerEnemy += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             if (timerEnemy >= timeAddEnemy && listEnemy.Count <= maxEnemy)
             {
-                listEnemy.Add(new CBusiEnemy(game, game.Content.Load<Texture2D>("Images/Enemy/enemy"), new Vector2(cglobal.random.Next(0, CGlobalVariable.WINDOW_HEIGHT), cglobal.random.Next(-100, 0)), 1, 2, 1));
+                listEnemy.Add(new CBusiEnemy(game, game.Content.Load<Texture2D>("Images/Enemy/enemy"), new Vector2(cglobal.random.Next(0, CGlobalVariable.WINDOW_HEIGHT), cglobal.random.Next(-100, 0)), 1, 2, 2));
                 timerEnemy = 0;
             }
 

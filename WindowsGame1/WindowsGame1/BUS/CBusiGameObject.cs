@@ -52,7 +52,10 @@ namespace CuocChienVuTru.BUS
         public int Hp
         {
             get { return hp; }
-            set { hp = value; }
+            set 
+            { 
+                hp = (value >= 0) ? value : 0; 
+            }
         }
 
         public int Damage

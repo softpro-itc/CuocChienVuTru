@@ -21,6 +21,12 @@ namespace CuocChienVuTru.BUS
         private int inteval = 100;
         private Texture2D skinHealthBar;
         private CBusiAnimation animation;
+
+        public CBusiAnimation Animation
+        {
+            get { return animation; }
+            set { animation = value; }
+        }
         private Vector2 posCenter;
 
         public Vector2 PosCenter
@@ -160,17 +166,18 @@ namespace CuocChienVuTru.BUS
         {
             spriteBatch.Draw(skinHealthBar, new Rectangle(800 / 2 - skinHealthBar.Width / 2, 30, skinHealthBar.Width, 20), new Rectangle(0, 45, skinHealthBar.Width, 44), Color.Gray);
             spriteBatch.Draw(skinHealthBar, new Rectangle(800 / 2 - skinHealthBar.Width / 2, 30, (int)(skinHealthBar.Width * ((double)hp / 100)), 20), new Rectangle(0, 45, skinHealthBar.Width, 44), Color.Red);
-            spriteBatch.DrawString(cglobal.font, Hp + " / " + 100, new Vector2(800 / 2 - skinHealthBar.Width / 2, 28), Color.White);
+            spriteBatch.DrawString(cglobal.font, Hp + " / " + hp, new Vector2(800 / 2 - skinHealthBar.Width / 2, 28), Color.White);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             DrawHeadBar(spriteBatch);
             //spriteBatch.Draw(skin, bound, Color.White);
-            spriteBatch.DrawString(cglobal.font, "currrent frame: " + (bound.X).ToString(), new Vector2(100, 50), Color.White);
             animation.Draw(spriteBatch);
-            foreach (CBusiBullet b in listBullet)
-                b.Draw(spriteBatch);
+
+            if(visible)
+                foreach (CBusiBullet b in listBullet)
+                    b.Draw(spriteBatch);
         }
 
         #endregion
