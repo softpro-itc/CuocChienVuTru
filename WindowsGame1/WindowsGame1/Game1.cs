@@ -9,9 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using CuocChienVuTru.BUS;
-using CuocChienVuTru.BUS;
 using CuocChienVuTru.CGlobal;
-using CuocChienVuTru.BUS;
 
 namespace CuocChienVuTru
 {
@@ -19,6 +17,8 @@ namespace CuocChienVuTru
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        
+        Texture2D skinCursor;
 
         public CBusiSoundManager sound;
 
@@ -28,7 +28,7 @@ namespace CuocChienVuTru
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;
+            //IsMouseVisible = true;
             graphics.PreferredBackBufferHeight = CGlobalVariable.WINDOW_HEIGHT;
             graphics.PreferredBackBufferWidth = CGlobalVariable.WINDOW_WIDTH;
             sound = new CBusiSoundManager();
@@ -48,7 +48,7 @@ namespace CuocChienVuTru
             spriteBatch = new SpriteBatch(GraphicsDevice);
             sound.loadContent(Content);
             gameSceneManager = new CBusiGameSceneManager(this);
-            
+            skinCursor = Content.Load<Texture2D>("Images/global/cursor");
         }
 
         protected override void UnloadContent()
@@ -72,6 +72,8 @@ namespace CuocChienVuTru
             spriteBatch.Begin();
 
             gameSceneManager.Draw(spriteBatch);
+
+            spriteBatch.Draw(skinCursor, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), Color.White);
 
             spriteBatch.End();
 

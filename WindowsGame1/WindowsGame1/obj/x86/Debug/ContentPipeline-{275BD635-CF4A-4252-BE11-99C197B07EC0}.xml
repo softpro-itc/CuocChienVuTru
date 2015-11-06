@@ -210,6 +210,15 @@
       <Extra>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\background1.wma</Extra>
       <Time>2015-10-29T15:40:56.0648605+07:00</Time>
     </Item>
+    <Item>
+      <Source>Images\Global\cursor.png</Source>
+      <Name>Images\Global\cursor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Global\cursor.xnb</Output>
+      <Time>2015-11-01T21:31:21.7982911+07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{275BD635-CF4A-4252-BE11-99C197B07EC0}</ContentProjectGUID>
