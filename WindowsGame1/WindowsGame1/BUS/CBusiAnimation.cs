@@ -55,11 +55,12 @@ namespace CuocChienVuTru.BUS
         /// </summary>
         /// <param name="newTexture">hình ảnh animation</param>
         /// <param name="newPosition">vị trí của animation</param>
+        /// <param name="speed">tốc độ chạy của frame</param>
         /// <param name="NewFrameWidth">chiều rộng của 1 frame</param>
         /// <param name="newFrameHeight">chiều cao của 1 frame</param>
         /// <param name="newMaxFrame">số frame trong hình</param>
         /// <param name="count">số lân thực hiện animation</param>
-        public CBusiAnimation(Texture2D newTexture, Vector2 newPosition, int NewFrameWidth, int newFrameHeight, int newMaxFrame, int count)
+        public CBusiAnimation(Texture2D newTexture, Vector2 newPosition, int speed, int NewFrameWidth, int newFrameHeight, int newMaxFrame, int count)
         {
             texture = newTexture;
             position = newPosition;
@@ -67,10 +68,11 @@ namespace CuocChienVuTru.BUS
             frameHeight = newFrameHeight;
             maxFrame = newMaxFrame;
             life = count * maxFrame;
+            interval = speed;
         }
 
 
-        public CBusiAnimation(Texture2D newTexture, Vector2 newPosition, int NewFrameWidth, int newFrameHeight, int newMaxFrame, int currentFrame, bool isAllowControl)
+        public CBusiAnimation(Texture2D newTexture, Vector2 newPosition, int speed, int NewFrameWidth, int newFrameHeight, int newMaxFrame, int currentFrame, bool isAllowControl)
         {
             texture = newTexture;
             position = newPosition;
@@ -79,6 +81,7 @@ namespace CuocChienVuTru.BUS
             maxFrame = newMaxFrame;
             this.currentFrame = currentFrame;
             this.isAllowControl = isAllowControl;
+            interval = speed;
         }
 
         public void Update(GameTime gameTime)

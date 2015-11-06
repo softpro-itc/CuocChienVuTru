@@ -158,7 +158,7 @@ namespace CuocChienVuTru.BUS
                     //quái trúng đạn
                     if (player.ListBullet[j].Bound.Intersects(listEnemy[i].Bound))
                     {
-                        listEffect.Add(new CBusiAnimation(cglobal.Content.Load<Texture2D>("Images/Effect/no"), listEnemy[i].Position, 65, 64, 6, 1));
+                        listEffect.Add(new CBusiAnimation(cglobal.Content.Load<Texture2D>("Images/Effect/no"), listEnemy[i].Position, 50, 65, 64, 6, 1));
                         listEnemy[i].Hp -= player.ListBullet[j].Damage;
                     }
                 }
@@ -169,7 +169,7 @@ namespace CuocChienVuTru.BUS
                     //người chơi bị trúng đạn
                     if (listEnemy[i].ListBullet[j].Bound.Intersects(player.Bound))
                     {
-                        listEffect.Add(new CBusiAnimation(cglobal.Content.Load<Texture2D>("Images/Effect/no"), player.PosCenter, 65, 64, 6, 1));
+                        listEffect.Add(new CBusiAnimation(cglobal.Content.Load<Texture2D>("Images/Effect/no"), player.PosCenter, 50, 65, 64, 6, 1));
                         listEnemy[i].Hp -= player.Damage;
                         player.Hp -= listEnemy[i].ListBullet[j].Damage;
 
@@ -182,7 +182,7 @@ namespace CuocChienVuTru.BUS
                 //người chơi va chạm với quái
                 if (listEnemy[i].Bound.Intersects(player.Bound))
                 {
-                    listEffect.Add(new CBusiAnimation(cglobal.Content.Load<Texture2D>("Images/Effect/no"), player.PosCenter, 65, 64, 6, 1));
+                    listEffect.Add(new CBusiAnimation(cglobal.Content.Load<Texture2D>("Images/Effect/no"), player.PosCenter, 50, 65, 64, 6, 1));
                     listEnemy[i].Hp -= player.Damage;
                     player.Hp -= listEnemy[i].Damage;
 
@@ -197,7 +197,7 @@ namespace CuocChienVuTru.BUS
             {
                 if(listItem[i].Bound.Intersects(player.Bound))
                 {
-                    listEffect.Add(new CBusiAnimation(cglobal.Content.Load<Texture2D>("Images/Effect/effect_2"), player.PosCenter, 128, 118, 8, 1));
+                    listEffect.Add(new CBusiAnimation(cglobal.Content.Load<Texture2D>("Images/Effect/effect_2"), player.PosCenter, 30, 128, 118, 8, 1));
                     listItem.RemoveAt(i);
                     i--;
                 }

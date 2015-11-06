@@ -64,7 +64,7 @@ namespace CuocChienVuTru.BUS
             score = 0;
             hp = 100;
             skinHealthBar = cglobal.Content.Load<Texture2D>("Images/Button/HealthBar");
-            animation = new CBusiAnimation(skin, position, 64, 64, 3, 1, true);
+            animation = new CBusiAnimation(skin, position, 80, 64, 64, 3, 1, true);
             
         }
 
@@ -75,7 +75,7 @@ namespace CuocChienVuTru.BUS
             this.life = life;
             this.hp = hp;
             skinHealthBar = cglobal.Content.Load<Texture2D>("Images/Button/HealthBar");
-            animation = new CBusiAnimation(skin, position, 64, 64, 3, 1, true);
+            animation = new CBusiAnimation(skin, position, 80, 64, 64, 3, 1, true);
         }
 
         public CBusiPlayer(Game1 game, Texture2D skin, Vector2 position, int speed, int damage, int life, int hp, int score)
@@ -84,7 +84,7 @@ namespace CuocChienVuTru.BUS
             this.score = score;
             this.life = life;
             this.hp = hp;
-            animation = new CBusiAnimation(skin, position, 64, 64, 3, 1, true);
+            animation = new CBusiAnimation(skin, position, 80, 64, 64, 3, 1, true);
         }
         #endregion
 

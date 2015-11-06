@@ -23,7 +23,7 @@ namespace CuocChienVuTru.BUS
         public CBusiItem(Game1 game, Texture2D skin, Vector2 position, int speed, int damage)
             : base(game, skin, position, speed, damage)
         {
-            animation = new CBusiAnimation(skin, position, 50, 50, 5, -1);
+            animation = new CBusiAnimation(skin, position, 80, 50, 50, 5, -1);
         }
 
         public override void Update(GameTime gameTime)
