@@ -11,13 +11,12 @@ namespace CuocChienVuTru.DTO
     public class CInfoPlayer
     {
         #region khai baso biến
-        private int score;
-        private int life;
-        private List<CBusiBullet> listBullet = new List<CBusiBullet>();
-        private CGloabalFunction input = new CGloabalFunction();
-        private int timer = 0;
-        private int inteval = 100;
-        private Texture2D skinHealthBar;
+        private int score; //điểm người chơi
+        private int life; //mạng sống người chơi
+        private List<CBusiBullet> listBullet = new List<CBusiBullet>(); //danh sách đạn người chơi bắn ra
+        private CGloabalFunction input = new CGloabalFunction(); //đố tượng toàn cục 
+        private int timer = 0; //đếm thời gian bắn đạn
+        private int inteval = 100; //thời gian bắn đạn
         #endregion
 
         #region propeties
@@ -57,11 +56,6 @@ namespace CuocChienVuTru.DTO
             set { inteval = value; }
         }
 
-        public Texture2D SkinHealthBar
-        {
-            get { return skinHealthBar; }
-            set { skinHealthBar = value; }
-        }
         #endregion
 
         /// <summary>
