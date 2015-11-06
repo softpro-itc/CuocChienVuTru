@@ -1,24 +1,23 @@
-﻿using System;
+﻿using CuocChienVuTru.BUS;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Content;
-using CuocChienVuTru.CGlobal;
-using Microsoft.Xna.Framework.Input;
-using CuocChienVuTru.BUS;
 
 namespace CuocChienVuTru.GUI
 {
-    public class CGuiWellcome : CBusiGameSceneBase
+    public class CGuiPause : CBusiGameSceneBase
     {
         CBusiButton btnContinue;
         CBusiButton btnNewGame;
         CBusiButton btnOption;
-        CBusiButton btnQuit;
+        CBusiButton btnBackMenu;
 
-        public CGuiWellcome(Game1 game, CBusiBackground background) : base(game, background)
+        public CGuiPause(Game1 game, CBusiBackground background)
+            : base(game, background)
         {
             btnContinue = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/continue"), new Vector2(200, 200));
             btnNewGame = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/new_game"), new Vector2(200, 300));

@@ -36,14 +36,16 @@ namespace CuocChienVuTru.BUS
         {
             this.player = player;
             listButton.Add(new CBusiButton(game.Content.Load<Texture2D>("Images/Button/sound"), new Vector2(0, CGlobalVariable.WINDOW_HEIGHT-50)));
-            MediaPlayer.Play(game.sound.background);
+            MediaPlayer.Play(cglobalDic.ListSoundBG["bg1"]);
         }
+
+        public CBusiLevelBase() { }
 
         public override void Update(GameTime gameTime)
         {
                       
             base.Update(gameTime);
-            if(input.KeyboardPress(Keys.Escape))
+            if(cglobalFunc.KeyboardPress(Keys.Escape))
             {
                game.gameSceneManager.ShowGameScene(game.gameSceneManager.menuStart);
             }
@@ -92,7 +94,7 @@ namespace CuocChienVuTru.BUS
             //thêm item
             if (timerItem >= timeAddItem && listItem.Count <= maxItem)
             {
-                listItem.Add(new CBusiItem(game, cglobal.Content.Load<Texture2D>("Images/Item/star"), new Vector2(cglobal.random.Next(0, CGlobalVariable.WINDOW_HEIGHT), cglobal.random.Next(-100, 0)), 1, 2));
+                listItem.Add(new CBusiItem(game, cglobalVar.Content.Load<Texture2D>("Images/Item/star"), new Vector2(cglobalVar.random.Next(0, CGlobalVariable.WINDOW_HEIGHT), cglobalVar.random.Next(-100, 0)), 1, 2));
                 timerItem = 0;
             }
 
@@ -121,7 +123,7 @@ namespace CuocChienVuTru.BUS
             timerEnemy += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             if (timerEnemy >= timeAddEnemy && listEnemy.Count <= maxEnemy)
             {
-                listEnemy.Add(new CBusiEnemy(game, game.Content.Load<Texture2D>("Images/Enemy/enemy"), new Vector2(cglobal.random.Next(0, CGlobalVariable.WINDOW_HEIGHT), cglobal.random.Next(-100, 0)), 1, 2, 2));
+                listEnemy.Add(new CBusiEnemy(game, game.Content.Load<Texture2D>("Images/Enemy/enemy"), new Vector2(cglobalVar.random.Next(0, CGlobalVariable.WINDOW_HEIGHT), cglobalVar.random.Next(-100, 0)), 1, 2, 2));
                 timerEnemy = 0;
             }
 
@@ -133,7 +135,7 @@ namespace CuocChienVuTru.BUS
                     if (listEnemy[i].Hp <= 0)
                     {
                         player.Score += listEnemy[i].Damage;
-                        cglobal.sound.explosion.Play();
+                        game.cglobalDic.ListSoundEffect["explode"].Play();
                     }
 
                     listEnemy.RemoveAt(i);
@@ -158,7 +160,7 @@ namespace CuocChienVuTru.BUS
                     //quái trúng đạn
                     if (player.ListBullet[j].Bound.Intersects(listEnemy[i].Bound))
                     {
-                        listEffect.Add(new CBusiAnimation(cglobal.Content.Load<Texture2D>("Images/Effect/no"), listEnemy[i].Position, 50, 65, 64, 6, 1));
+                        listEffect.Add(new CBusiAnimation(cglobalVar.Content.Load<Texture2D>("Images/Effect/no"), listEnemy[i].Position, 50, 65, 64, 6, 1));
                         listEnemy[i].Hp -= player.ListBullet[j].Damage;
                     }
                 }
@@ -169,7 +171,7 @@ namespace CuocChienVuTru.BUS
                     //người chơi bị trúng đạn
                     if (listEnemy[i].ListBullet[j].Bound.Intersects(player.Bound))
                     {
-                        listEffect.Add(new CBusiAnimation(cglobal.Content.Load<Texture2D>("Images/Effect/no"), player.PosCenter, 50, 65, 64, 6, 1));
+                        listEffect.Add(new CBusiAnimation(cglobalVar.Content.Load<Texture2D>("Images/Effect/no"), player.PosCenter, 50, 65, 64, 6, 1));
                         listEnemy[i].Hp -= player.Damage;
                         player.Hp -= listEnemy[i].ListBullet[j].Damage;
 
@@ -182,14 +184,14 @@ namespace CuocChienVuTru.BUS
                 //người chơi va chạm với quái
                 if (listEnemy[i].Bound.Intersects(player.Bound))
                 {
-                    listEffect.Add(new CBusiAnimation(cglobal.Content.Load<Texture2D>("Images/Effect/no"), player.PosCenter, 50, 65, 64, 6, 1));
+                    listEffect.Add(new CBusiAnimation(cglobalVar.Content.Load<Texture2D>("Images/Effect/no"), player.PosCenter, 50, 65, 64, 6, 1));
                     listEnemy[i].Hp -= player.Damage;
                     player.Hp -= listEnemy[i].Damage;
 
                     //xóa quái khi va chạm với người chơi
                     listEnemy.RemoveAt(i);
                     i--;
-                    cglobal.sound.explosion.Play();
+                    game.cglobalDic.ListSoundEffect["explode"].Play();
                 }
             }
 
@@ -197,7 +199,7 @@ namespace CuocChienVuTru.BUS
             {
                 if(listItem[i].Bound.Intersects(player.Bound))
                 {
-                    listEffect.Add(new CBusiAnimation(cglobal.Content.Load<Texture2D>("Images/Effect/effect_2"), player.PosCenter, 30, 128, 118, 8, 1));
+                    listEffect.Add(new CBusiAnimation(cglobalVar.Content.Load<Texture2D>("Images/Effect/effect_2"), player.PosCenter, 30, 128, 118, 8, 1));
                     listItem.RemoveAt(i);
                     i--;
                 }
@@ -219,8 +221,8 @@ namespace CuocChienVuTru.BUS
            //vẽ các button
             foreach (CBusiButton b in listButton)
                 b.Draw(spriteBatch);
-            spriteBatch.DrawString(cglobal.font, "Score: " + player.Score, new Vector2(10,10), Color.White);
-            spriteBatch.DrawString(cglobal.font, "Damage: " + player.Damage, new Vector2(10, 30), Color.White);
+            spriteBatch.DrawString(cglobalVar.font, "Score: " + player.Score, new Vector2(10,10), Color.White);
+            spriteBatch.DrawString(cglobalVar.font, "Damage: " + player.Damage, new Vector2(10, 30), Color.White);
             player.Draw(spriteBatch);
         }
     }

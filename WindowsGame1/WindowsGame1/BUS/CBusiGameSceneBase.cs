@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using CuocChienVuTru.CGlobal;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using CuocChienVuTru.Global;
 
 namespace CuocChienVuTru.BUS
 {
@@ -15,20 +16,24 @@ namespace CuocChienVuTru.BUS
     {
         public List<CBusiButton> listButton;
         public CBusiBackground background;
-        public CGlobalVariable cglobal;
+        public CGlobalVariable cglobalVar;
         public bool isVisible;
         protected Game1 game;
-        protected CGloabalFunction input;
+        protected CGloabalFunction cglobalFunc;
+        protected CGlobalDictionary cglobalDic;
 
         public CBusiGameSceneBase(Game1 game, CBusiBackground background)
         {
             this.background = background;
-            cglobal = new CGlobalVariable(game);
+            cglobalVar = new CGlobalVariable(game);
             isVisible = false;
             listButton = new List<CBusiButton>();
             this.game = game;
-            input = new CGloabalFunction();
+            cglobalFunc = new CGloabalFunction();
+            cglobalDic = game.cglobalDic;
         }
+
+        public CBusiGameSceneBase() { }
 
         public void Show()
         {
@@ -42,22 +47,21 @@ namespace CuocChienVuTru.BUS
 
         public virtual void Update(GameTime gameTime)
         {
-            input.Update();
+            cglobalFunc.Update();
             background.Update(gameTime);
-            cglobal.Update();
+            cglobalVar.Update();
             for (int i = 0; i < listButton.Count; i++)
             {
-                if (cglobal.mouseBound.Intersects(listButton[i].Bound))
+                if (cglobalVar.mouseBound.Intersects(listButton[i].Bound))
                 {
                     if (!listButton[i].IsHover)
-                        cglobal.sound.hover.Play();
-
+                        cglobalDic.ListSoundEffect["hover"].Play();
                     listButton[i].IsHover = true;
                     listButton[i].ColorBrush = Color.SkyBlue;
-                    if (cglobal.mouse.LeftButton == ButtonState.Pressed)
+                    if (cglobalVar.mouse.LeftButton == ButtonState.Pressed)
                     {
                         listButton[i].IsClicked = true;
-                        cglobal.sound.clicked.Play();
+                        cglobalDic.ListSoundEffect["clicked"].Play();
                     }
                     else
                         listButton[i].IsClicked = false;

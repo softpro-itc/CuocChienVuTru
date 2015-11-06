@@ -1,5 +1,6 @@
 ﻿using CuocChienVuTru.BUS;
 using CuocChienVuTru.CGlobal;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,11 @@ namespace CuocChienVuTru.DTO
         private CGloabalFunction input = new CGloabalFunction(); //đố tượng toàn cục 
         private int timer = 0; //đếm thời gian bắn đạn
         private int inteval = 100; //thời gian bắn đạn
+        private int hp;
+        private Game1 game;
+        private Texture2D skin;
+        private Vector2 position;
+
         #endregion
 
         #region propeties
@@ -55,7 +61,28 @@ namespace CuocChienVuTru.DTO
             get { return inteval; }
             set { inteval = value; }
         }
+        public int Hp
+        {
+            get { return hp; }
+            set { hp = value; }
+        }
 
+        public Game1 Game
+        {
+            get { return game; }
+            set { game = value; }
+        }
+        public Texture2D Skin
+        {
+            get { return skin; }
+            set { skin = value; }
+        }
+
+        public Vector2 Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
         #endregion
 
         /// <summary>
@@ -74,5 +101,8 @@ namespace CuocChienVuTru.DTO
             this.timer = timer;
             this.inteval = inteval;
         }
+
+        public CInfoPlayer()
+        { }
     }
 }

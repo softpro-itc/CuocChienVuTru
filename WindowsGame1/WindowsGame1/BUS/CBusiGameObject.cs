@@ -95,6 +95,8 @@ namespace CuocChienVuTru.BUS
             font = game.Content.Load<SpriteFont>("Font/fontMain");
            
         }
+
+        public CBusiGameObject(){}
         #endregion
 
         #region khai báo phương thức
