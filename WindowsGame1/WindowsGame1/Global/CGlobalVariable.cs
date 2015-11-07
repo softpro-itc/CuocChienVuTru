@@ -20,7 +20,6 @@ namespace CuocChienVuTru.CGlobal
         public MouseState mouse;
         public KeyboardState keyboard;
         public Rectangle mouseBound;
-        public CBusiSoundManager sound;
         public Random random;
 
         /// <summary>
@@ -31,7 +30,6 @@ namespace CuocChienVuTru.CGlobal
         {
             Content = game.Content;
             font = Content.Load<SpriteFont>("Font/fontMain");
-            sound = game.sound;
             random = new Random();
         }
 

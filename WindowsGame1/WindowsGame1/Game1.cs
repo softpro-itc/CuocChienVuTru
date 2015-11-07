@@ -22,8 +22,6 @@ namespace CuocChienVuTru
         
         Texture2D skinCursor;
 
-        public CBusiSoundManager sound;
-
         public CBusiGameSceneManager gameSceneManager;
         public CGlobalDictionary cglobalDic;
         CDAOSaveGame a;
@@ -75,8 +73,8 @@ namespace CuocChienVuTru
 
             spriteBatch.Begin();
 
-            spriteBatch.DrawString(Content.Load<SpriteFont>("Font/fontMain"), a.LoadData(), Vector2.Zero, Color.White);
-            //gameSceneManager.Draw(spriteBatch);
+            //spriteBatch.DrawString(Content.Load<SpriteFont>("Font/fontMain"), a.LoadData(), Vector2.Zero, Color.White);
+            gameSceneManager.Draw(spriteBatch);
 
             spriteBatch.Draw(skinCursor, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), Color.White);
 

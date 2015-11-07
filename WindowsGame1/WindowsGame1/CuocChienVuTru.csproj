@@ -81,7 +81,6 @@
     <Compile Include="BUS\CBusiAnimation.cs" />
     <Compile Include="BUS\CBusiGameObjectAI.cs" />
     <Compile Include="BUS\CBusiGameSceneManager.cs" />
-    <Compile Include="BUS\CBusiSoundManager.cs" />
     <Compile Include="BUS\CBusiBullet.cs" />
     <Compile Include="BUS\CBusiEnemy.cs" />
     <Compile Include="BUS\CBusiGameObject.cs" />
@@ -91,6 +90,8 @@
     <Compile Include="BUS\CBusiLevelBase.cs" />
     <Compile Include="DAO\CDAOLoadGame.cs" />
     <Compile Include="DAO\CDAOSaveGame.cs" />
+    <Compile Include="DTO\CInfoGameObject.cs" />
+    <Compile Include="DTO\CInfoGameObjectAI.cs" />
     <Compile Include="DTO\CInfoPlayer.cs" />
     <Compile Include="Global\CGlobalDictionary.cs" />
     <Compile Include="GUI\CGuiLevel1.cs" />
