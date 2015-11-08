@@ -25,15 +25,29 @@ namespace CuocChienVuTru.BUS
         public CBusiGameSceneBase(Game1 game, CBusiBackground background)
         {
             this.background = background;
-            cglobalVar = new CGlobalVariable(game);
             isVisible = false;
             listButton = new List<CBusiButton>();
             this.game = game;
-            cglobalFunc = new CGloabalFunction();
+            cglobalVar = game.cglobalVar;
+            cglobalFunc = game.cglobalFunc;
             cglobalDic = game.cglobalDic;
         }
 
-        public CBusiGameSceneBase() { }
+        public CBusiGameSceneBase(Game1 game) 
+        {
+            this.game = game;
+            listButton = new List<CBusiButton>();
+            cglobalVar = game.cglobalVar;
+            cglobalFunc = game.cglobalFunc;
+            cglobalDic = game.cglobalDic;
+        }
+
+        public CBusiGameSceneBase() 
+        {
+            cglobalVar = game.cglobalVar;
+            cglobalFunc = game.cglobalFunc;
+            cglobalDic = game.cglobalDic;
+        }
 
         public void Show()
         {
@@ -57,7 +71,7 @@ namespace CuocChienVuTru.BUS
                     if (!listButton[i].IsHover)
                         cglobalDic.ListSoundEffect["hover"].Play();
                     listButton[i].IsHover = true;
-                    listButton[i].ColorBrush = Color.SkyBlue;
+                    listButton[i].ColorBrush = Color.Red;
                     if (cglobalVar.mouse.LeftButton == ButtonState.Pressed)
                     {
                         listButton[i].IsClicked = true;
@@ -82,8 +96,9 @@ namespace CuocChienVuTru.BUS
             if (isVisible)
             {
                 background.Draw(spriteBatch);
-                foreach (CBusiButton b in listButton)
-                    b.Draw(spriteBatch);
+                if(listButton.Count > 0)
+                    foreach (CBusiButton b in listButton)
+                        b.Draw(spriteBatch);
             }
         }
 

@@ -13,14 +13,11 @@ namespace CuocChienVuTru.BUS
    public class CBusiGameSceneManager
     {
         public CGuiWellcome menuStart;
-
-        public CBusiGameSceneBase active;
-
+        public CBusiGameSceneBase active;        
 
         public CBusiGameSceneManager(Game1 game)
         {
-            Texture2D tmp = game.Content.Load<Texture2D>("Images/Background/12");
-            menuStart = new CGuiWellcome(game, new CBusiBackground(tmp, 0));
+            menuStart = new CGuiWellcome(game);
             active = menuStart;
             active.isVisible = true;
         }

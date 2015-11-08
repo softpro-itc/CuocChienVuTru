@@ -16,15 +16,23 @@ namespace CuocChienVuTru.GUI
         CBusiButton btnContinue;
         CBusiButton btnNewGame;
         CBusiButton btnOption;
+        CBusiButton btnHelp;
         CBusiButton btnQuit;
 
-        public CGuiWellcome(Game1 game, CBusiBackground background) : base(game, background)
+        public CGuiWellcome(Game1 game) : base(game)
         {
-            btnContinue = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/continue"), new Vector2(200, 200));
-            btnNewGame = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/new_game"), new Vector2(200, 300));
+            background = new CBusiBackground(game, "bg_wellcome", 0);
+            btnContinue = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/btn_continue"), new Vector2(265, 230));
+            btnNewGame = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/btn_newgame"), new Vector2(265, 300));
+            btnOption = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/btn_optinon"), new Vector2(265, 370));
+            btnHelp = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/btn_help"), new Vector2(265, 440));
+            btnQuit = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/btn_exit"), new Vector2(265, 510));
            // background.IsScroll = false;
             listButton.Add(btnContinue);
             listButton.Add(btnNewGame);
+            listButton.Add(btnOption);
+            listButton.Add(btnHelp);
+            listButton.Add(btnQuit);
         }
 
         public override void Update(GameTime gameTime)
@@ -33,13 +41,17 @@ namespace CuocChienVuTru.GUI
 
             if(btnNewGame.IsClicked)
             {
-                Texture2D tmp = game.Content.Load<Texture2D>("Images/Background/space");
-                CBusiPlayer player = new CBusiPlayer(game, game.Content.Load<Texture2D>("Images/Player/player_3"), new Vector2(200, 400), 5, 2, 5, 100);
-                CBusiLevelBase level1 = new CBusiLevelBase(game, new CBusiBackground(tmp, 2), player);
-                game.gameSceneManager.ShowGameScene(level1);
+                game.gameSceneManager.ShowGameScene(new CGuiLevel1(game));
+                
             }
 
-            if (btnContinue.IsClicked)
+            else if (btnHelp.IsClicked)
+            {
+                game.gameSceneManager.ShowGameScene(new CGuiHelp(game));
+                btnHelp.IsClicked = false;
+            }
+
+            else if (btnQuit.IsClicked)
                 game.Exit();
         }
 

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -24,17 +24,17 @@ namespace CuocChienVuTru
 
         public CBusiGameSceneManager gameSceneManager;
         public CGlobalDictionary cglobalDic;
-        CDAOSaveGame a;
+        public CGlobalVariable cglobalVar;
+        public CGloabalFunction cglobalFunc;
+        public CGlobalItem cglobalItem;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            //IsMouseVisible = true;
+            //thiết lập độ phâm giả
             graphics.PreferredBackBufferHeight = CGlobalVariable.WINDOW_HEIGHT;
-            graphics.PreferredBackBufferWidth = CGlobalVariable.WINDOW_WIDTH;
-            cglobalDic = new CGlobalDictionary(this);
-            a = new CDAOSaveGame();
+            graphics.PreferredBackBufferWidth = CGlobalVariable.WINDOW_WIDTH;                        
         }
 
 
@@ -48,6 +48,12 @@ namespace CuocChienVuTru
 
         protected override void LoadContent()
         {
+            //khơi tạo đối tượng toàn cục
+            cglobalVar = new CGlobalVariable(Content);
+            cglobalFunc = new CGloabalFunction();
+            cglobalDic = new CGlobalDictionary(this);
+            cglobalItem = new CGlobalItem(this);
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
             gameSceneManager = new CBusiGameSceneManager(this);
             skinCursor = Content.Load<Texture2D>("Images/global/cursor");
@@ -73,7 +79,6 @@ namespace CuocChienVuTru
 
             spriteBatch.Begin();
 
-            //spriteBatch.DrawString(Content.Load<SpriteFont>("Font/fontMain"), a.LoadData(), Vector2.Zero, Color.White);
             gameSceneManager.Draw(spriteBatch);
 
             spriteBatch.Draw(skinCursor, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), Color.White);

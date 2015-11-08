@@ -7,24 +7,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CuocChienVuTru.CGlobal;
-using CuocChienVuTru.DTO;
 
 namespace CuocChienVuTru.BUS
 {
     public class CBusiPlayer : CBusiGameObjectAI
     {
         #region khai báo biến
-
         private int score;
         private int life;
         private CGloabalFunction input = new CGloabalFunction();
         private Texture2D skinHealthBar;
         private CBusiAnimation animation;
+        private CBusiAnimation animationLeft, animationRight;
         private Vector2 posCenter;
-
         #endregion
 
         #region khai báo propeties
+
 
         public CBusiAnimation Animation
         {
@@ -34,7 +33,7 @@ namespace CuocChienVuTru.BUS
 
         public Vector2 PosCenter
         {
-            get { return new Vector2(position.X - animation.Rectangle.Width/2, position.Y - animation.Rectangle.Height/2); }
+            get { return animation.Position;}
             set { posCenter = value; }
         }  
 
@@ -52,40 +51,47 @@ namespace CuocChienVuTru.BUS
         #endregion
 
         #region constructor
-        public CBusiPlayer(Game1 game, Texture2D skin, Vector2 position, int speed, int damage)
-            : base(game, skin, position, speed, damage)
+        public CBusiPlayer(Game1 game, string skinName, Vector2 position, int speed, int damage)
+            : base(game, skinName, position, speed, damage)
         {
+            FolderSkin = "Images/Player/";
             life = 5;
             score = 0;
             hp = 100;
-            skinHealthBar = cglobal.Content.Load<Texture2D>("Images/Button/HealthBar");
-            animation = new CBusiAnimation(skin, position, 80, 64, 64, 3, 1, true);
-            
+            skinHealthBar = cglobalVar.Content.Load<Texture2D>("Images/Button/HealthBar");
+            LoadContent(skinName);
+            animation = new CBusiAnimation(game, FolderSkin + skinName, position, 80, 64, 64, 3, 1, true);
+            animationLeft = new CBusiAnimation(game, "Images/Effect/effect_player_1", new Vector2(posCenter.X, posCenter.Y+skin.Height), 80, 83, 76, 6, 1, true);
         }
 
-        public CBusiPlayer(Game1 game, Texture2D skin, Vector2 position, int speed, int damage, int life, int hp)
-            : base(game, skin, position, speed, damage)
+        public CBusiPlayer(Game1 game, string skinName, Vector2 position, int speed, int damage, int life, int hp)
+            : base(game, skinName, position, speed, damage)
         {
+            FolderSkin = "Images/Player/";
             score = 0;
             this.life = life;
             this.hp = hp;
-            skinHealthBar = cglobal.Content.Load<Texture2D>("Images/Button/HealthBar");
-            animation = new CBusiAnimation(skin, position, 80, 64, 64, 3, 1, true);
+            skinHealthBar = cglobalVar.Content.Load<Texture2D>("Images/Button/HealthBar");
+            LoadContent(skinName);
+            animation = new CBusiAnimation(game, "Images/Player/" + skinName, position, 80, 82, 64, 3, 3, true);
+
+            animationRight = new CBusiAnimation(game, "Images/Effect/effect_player_2", position, 50, 20, 50, 4, -1);
+            animationLeft = new CBusiAnimation(game, "Images/Effect/effect_player_2", position, 50, 20, 50, 4, -1);
             IntevalAddBullet = 100;
         }
 
         public CBusiPlayer() { }
-        //Game1 game, Texture2D skin, Vector2 position, int speed, int damage, int life, int hp, int score
-        public CBusiPlayer(CInfoPlayer dto)
-        {
-            game = dto.Game;
-            skin = dto.Skin;
-            position = dto.Position;
-            score = dto.Score;
-            life = dto.Life;
-            hp = dto.Hp;
-            animation = new CBusiAnimation(skin, position, 80, 64, 64, 3, 1, true);
-        }
+        ////Game1 game, Texture2D skin, Vector2 position, int speed, int damage, int life, int hp, int score
+        //public CBusiPlayer(CInfoPlayer dto)
+        //{
+        //    game = dto.Game;
+        //    skin = dto.Skin;
+        //    position = dto.Position;
+        //    score = dto.Score;
+        //    life = dto.Life;
+        //    hp = dto.Hp;
+        //    animation = new CBusiAnimation(skin, position, 80, 64, 64, 3, 1, true);
+        //}
         #endregion
 
         #region khai báo phương thức
@@ -108,6 +114,12 @@ namespace CuocChienVuTru.BUS
                                 
             animation.Update(gameTime);
             animation.Position = position;
+
+            animationRight.Update(gameTime);
+            animationRight.Position = new Vector2(position.X - 5, position.Y + 45);
+
+            animationLeft.Update(gameTime);
+            animationLeft.Position = new Vector2(position.X + 65, position.Y + 45);
         }
 
         /// <summary>
@@ -119,9 +131,9 @@ namespace CuocChienVuTru.BUS
                 position.Y -= speed;
             if (input.KeyboardPress(Keys.Down) && position.Y < CGlobalVariable.WINDOW_HEIGHT - skin.Height)
                 position.Y += speed;
-            if (input.KeyboardPress(Keys.Left) && position.X > 0)
+            if (input.KeyboardPress(Keys.Left) && position.X > - 10)
                 position.X -= speed;
-            if (input.KeyboardPress(Keys.Right) && position.X < CGlobalVariable.WINDOW_WIDTH - skin.Width / 2)
+            if (input.KeyboardPress(Keys.Right) && position.X < CGlobalVariable.WINDOW_WIDTH - 82)
                 position.X += speed;
         }
 
@@ -135,8 +147,7 @@ namespace CuocChienVuTru.BUS
                 if (timerAddBullet >= IntevalAddBullet)
                 {
                     timerAddBullet -= IntevalAddBullet;
-                    Texture2D t = cglobal.Content.Load<Texture2D>(@"Images\Bullet\bullet_1");
-                    CBusiBullet b = new CBusiBullet(game, t, new Vector2(position.X-animation.Rectangle.Width+skin.Width/2, position.Y), 10, 3, CBusiBullet.Owner.player);
+                    CBusiBullet b = new CBusiBullet(game, "bullet_1", new Vector2(position.X + animation.Rectangle.Width / 2, position.Y), 10, 3, CBusiBullet.Owner.player);
                     listBullet.Add(b);
                     game.cglobalDic.ListSoundEffect["shoot"].Play();
                 }
@@ -166,18 +177,24 @@ namespace CuocChienVuTru.BUS
         {
             spriteBatch.Draw(skinHealthBar, new Rectangle(800 / 2 - skinHealthBar.Width / 2, 30, skinHealthBar.Width, 20), new Rectangle(0, 45, skinHealthBar.Width, 44), Color.Gray);
             spriteBatch.Draw(skinHealthBar, new Rectangle(800 / 2 - skinHealthBar.Width / 2, 30, (int)(skinHealthBar.Width * ((double)hp / 100)), 20), new Rectangle(0, 45, skinHealthBar.Width, 44), Color.Red);
-            spriteBatch.DrawString(cglobal.font, Hp + " / " + hp, new Vector2(800 / 2 - skinHealthBar.Width / 2, 28), Color.White);
+            spriteBatch.DrawString(cglobalVar.font, hp.ToString(), new Vector2(800 / 2 - skinHealthBar.Width / 2, 28), Color.White);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             DrawHeadBar(spriteBatch);
             //spriteBatch.Draw(skin, bound, Color.White);
-            animation.Draw(spriteBatch);
 
-            if(visible)
+
+            if (visible)
+            {
+                animation.Draw(spriteBatch);
+                animationLeft.Draw(spriteBatch);
+                animationRight.Draw(spriteBatch);
+
                 foreach (CBusiBullet b in listBullet)
                     b.Draw(spriteBatch);
+            }
         }
 
         #endregion

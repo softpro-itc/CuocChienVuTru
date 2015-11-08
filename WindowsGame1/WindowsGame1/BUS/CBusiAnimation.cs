@@ -60,9 +60,9 @@ namespace CuocChienVuTru.BUS
         /// <param name="newFrameHeight">chiều cao của 1 frame</param>
         /// <param name="newMaxFrame">số frame trong hình</param>
         /// <param name="count">số lân thực hiện animation</param>
-        public CBusiAnimation(Texture2D newTexture, Vector2 newPosition, int speed, int NewFrameWidth, int newFrameHeight, int newMaxFrame, int count)
+        public CBusiAnimation(Game1 game, string skinName, Vector2 newPosition, int speed, int NewFrameWidth, int newFrameHeight, int newMaxFrame, int count)
         {
-            texture = newTexture;
+            texture = game.Content.Load<Texture2D>(skinName);
             position = newPosition;
             frameWidth = NewFrameWidth;
             frameHeight = newFrameHeight;
@@ -72,9 +72,9 @@ namespace CuocChienVuTru.BUS
         }
 
 
-        public CBusiAnimation(Texture2D newTexture, Vector2 newPosition, int speed, int NewFrameWidth, int newFrameHeight, int newMaxFrame, int currentFrame, bool isAllowControl)
+        public CBusiAnimation(Game1 game, string skinName, Vector2 newPosition, int speed, int NewFrameWidth, int newFrameHeight, int newMaxFrame, int currentFrame, bool isAllowControl)
         {
-            texture = newTexture;
+            texture = game.Content.Load<Texture2D>(skinName);
             position = newPosition;
             frameWidth = NewFrameWidth;
             frameHeight = newFrameHeight;

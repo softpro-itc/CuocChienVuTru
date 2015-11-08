@@ -12,6 +12,7 @@ namespace CuocChienVuTru.BUS
     public abstract class CBusiGameObject
     {
         #region khai báo biến
+        private string folderSkin;
         protected Texture2D skin;
         protected Vector2 position;
         protected Rectangle bound;
@@ -20,11 +21,18 @@ namespace CuocChienVuTru.BUS
         protected int damage;
         protected bool visible;
         protected Game1 game;
-        protected CGlobalVariable cglobal;
+        protected CGlobalVariable cglobalVar;
         protected SpriteFont font;
         #endregion
 
         #region khai báo propeties
+
+        protected string FolderSkin
+        {
+            get { return folderSkin; }
+            set { folderSkin = value; }
+        }
+
         public Texture2D Skin
         {
             get { return skin; }
@@ -82,18 +90,22 @@ namespace CuocChienVuTru.BUS
         /// <param name="position">vị trí </param>
         /// <param name="speed">tốc độ di chuyển</param>
         /// <param name="damage">mức độ tấn công</param>
-        public CBusiGameObject(Game1 game ,Texture2D skin, Vector2 position, int speed, int damage)
+        public CBusiGameObject(Game1 game ,string skinName, Vector2 position, int speed, int damage)
         {
             this.visible = true;
-            this.skin = skin;
             this.position = position;
             this.speed = speed;
             this.damage = damage;
-            this.bound = new Rectangle((int)position.X, (int)position.Y, skin.Width, skin.Height);
+            //this.bound = new Rectangle((int)position.X, (int)position.Y, skin.Width, skin.Height);
             this.game = game;
-            cglobal = new CGlobalVariable(game);
             font = game.Content.Load<SpriteFont>("Font/fontMain");
-           
+            cglobalVar = game.cglobalVar;
+        }
+
+        public void LoadContent(string skinName)
+        {
+            skin = game.Content.Load<Texture2D>(folderSkin + skinName);
+            this.bound = new Rectangle((int)position.X, (int)position.Y, skin.Width, skin.Height);
         }
 
         public CBusiGameObject(){}

@@ -40,7 +40,7 @@ namespace CuocChienVuTru.BUS
             get { return colorBrush; }
             set { colorBrush = value; }
         }
-        private bool isClicked;
+        private bool isClicked = false;
 
         public bool IsClicked
         {

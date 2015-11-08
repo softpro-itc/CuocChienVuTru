@@ -18,15 +18,19 @@ namespace CuocChienVuTru.BUS
 
 
         #region constructor
-        public CBusiEnemy(Game1 game, Texture2D skin, Vector2 position, int speed, int damage)
-            : base(game ,skin, position, speed, damage)
+        public CBusiEnemy(Game1 game, string skinName, Vector2 position, int speed, int damage)
+            : base(game, skinName, position, speed, damage)
         {
+            FolderSkin = "Images/Enemy/";
+            LoadContent(skinName);
         }
 
-        public CBusiEnemy(Game1 game,Texture2D skin, Vector2 position, int speed, int damage, int hp)
-            : base(game ,skin, position, speed, damage)
+        public CBusiEnemy(Game1 game, string skinName, Vector2 position, int speed, int damage, int hp)
+            : base(game, skinName, position, speed, damage)
         {
             this.hp = hp;
+            FolderSkin = "Images/Enemy/";
+            LoadContent(skinName);
         }
         #endregion
 
@@ -43,10 +47,10 @@ namespace CuocChienVuTru.BUS
             BulletManagement(gameTime);
 
             bound.Y = (int)position.Y;
-            //bound.X = (int)position.X;
+            bound.X = (int)position.X;
         }
 
-        private void Move()
+        public virtual void Move()
         {
             //if(cglobal.random.Next(0,1) == 1)
             //    position.X += speed;
@@ -60,8 +64,7 @@ namespace CuocChienVuTru.BUS
             if (timerAddBullet >= IntevalAddBullet && listBullet.Count <= maxBullet)
             {
                 timerAddBullet -= IntevalAddBullet;
-                Texture2D t = cglobal.Content.Load<Texture2D>(@"Images\Bullet\bullet_2");
-                CBusiBullet b = new CBusiBullet(game, t, new Vector2(position.X + 15, position.Y + 10), 2, 1, CBusiBullet.Owner.enemy );
+                CBusiBullet b = new CBusiBullet(game, "bullet_2", new Vector2(position.X + 15, position.Y + 10), 2, 1, CBusiBullet.Owner.enemy);
                 listBullet.Add(b);
             }
         }

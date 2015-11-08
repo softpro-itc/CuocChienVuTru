@@ -11,6 +11,13 @@ namespace CuocChienVuTru.BUS
     public class CBusiItem : CBusiGameObject
     {
         CBusiAnimation animation;
+        bool isAnimation = true;
+
+        public bool IsAnimation
+        {
+            get { return isAnimation; }
+            set { isAnimation = value; }
+        }
 
         /// <summary>
         /// 
@@ -20,10 +27,12 @@ namespace CuocChienVuTru.BUS
         /// <param name="position"></param>
         /// <param name="speed"></param>
         /// <param name="damage"></param>
-        public CBusiItem(Game1 game, Texture2D skin, Vector2 position, int speed, int damage)
-            : base(game, skin, position, speed, damage)
+        public CBusiItem(Game1 game, string skinName, Vector2 position, int speed, int damage)
+            : base(game, skinName, position, speed, damage)
         {
-            animation = new CBusiAnimation(skin, position, 80, 50, 50, 5, -1);
+            FolderSkin = "Images/Item/";
+            animation = new CBusiAnimation(game, FolderSkin + skinName, position, 80, 50, 50, 5, -1);
+            LoadContent(skinName);
         }
 
         public override void Update(GameTime gameTime)
@@ -31,15 +40,20 @@ namespace CuocChienVuTru.BUS
             position.Y += speed;
             bound.Y = (int)position.Y;
 
-            animation.Update(gameTime);
-            animation.Position = position;
+            if (isAnimation)
+            {
+                animation.Update(gameTime);
+                animation.Position = position;
+            }
 
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(skin, bound, Color.White);
-            animation.Draw(spriteBatch);
+            if(!isAnimation)
+                spriteBatch.Draw(skin, bound, Color.White);
+            else
+                animation.Draw(spriteBatch);
         }
     }
 }

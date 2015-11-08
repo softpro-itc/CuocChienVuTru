@@ -26,9 +26,9 @@ namespace CuocChienVuTru.CGlobal
         /// phương thức khởi tạo
         /// </summary>
         /// <param name="game">đôi tượng game chính</param>
-        public CGlobalVariable(Game1 game)
+        public CGlobalVariable(ContentManager Content)
         {
-            Content = game.Content;
+            this.Content = Content;
             font = Content.Load<SpriteFont>("Font/fontMain");
             random = new Random();
         }

@@ -3,38 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using CuocChienVuTru.BUS;
+using System.Xml.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
 namespace CuocChienVuTru.DAO
 {
+    [Serializable]
     class CDAOSaveGame
     {
         public string strFileSave;
 
         public CDAOSaveGame()
         {
-            SaveData();         
         }
 
-        public void SaveData()
+        public void SaveData(CBusiLevelBase gameScene)
         {
-            strFileSave = Directory.GetCurrentDirectory() + @"\data " + DateTime.Now.ToLongTimeString().Replace(":", "_") + ".txt";    
-            using (StreamWriter write = new StreamWriter(strFileSave, true, Encoding.Unicode))
-            {
-                write.WriteLine("tiendinh");
-                write.WriteLine("1995");
-            }
+            strFileSave = Directory.GetCurrentDirectory() + @"\data " + DateTime.Now.ToLongTimeString().Replace(":", "_") + ".dat";
+            FileStream FS = File.Create(strFileSave);
+            BinaryFormatter binSerializer = new BinaryFormatter();
+            binSerializer.Serialize(FS, gameScene);
+            FS.Close();
+
         }
 
-        public string LoadData()
+        public CBusiLevelBase LoadData(string strFileData)
         {
-            using(StreamReader reader = new StreamReader(strFileSave))
-            {
-                string line, rs = "";
-                while ((line = reader.ReadLine()) != null)
-                    rs += line + " | ";
-
-                return rs;
-            }
+            FileStream FS = File.OpenRead(strFileData);
+            BinaryFormatter binSerializer = new BinaryFormatter();
+            CBusiLevelBase obj = (CBusiLevelBase)binSerializer.Deserialize(FS);
+            FS.Close();
+            return (obj);
         }
+
     }
+
+
+
+   
 }

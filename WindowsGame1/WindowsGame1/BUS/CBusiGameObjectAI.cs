@@ -32,8 +32,8 @@ namespace CuocChienVuTru.BUS
         }
         #endregion
 
-        public CBusiGameObjectAI(Game1 game, Texture2D skin, Vector2 position, int speed, int damage)
-            : base(game, skin, position, speed, damage)
+        public CBusiGameObjectAI(Game1 game, string skinName, Vector2 position, int speed, int damage)
+            : base(game, skinName, position, speed, damage)
         {            
         }
 

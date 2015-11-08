@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CuocChienVuTru.DAO;
 
 namespace CuocChienVuTru.GUI
 {
@@ -13,32 +14,54 @@ namespace CuocChienVuTru.GUI
     {
         CBusiButton btnContinue;
         CBusiButton btnNewGame;
-        CBusiButton btnOption;
-        CBusiButton btnBackMenu;
+        CBusiButton btnSave;
+        CBusiButton btnMenu;
+        CBusiButton btnQuit;
+        CBusiLevelBase preScene;
 
-        public CGuiPause(Game1 game, CBusiBackground background)
-            : base(game, background)
+        public CGuiPause(Game1 game, CBusiLevelBase preScene)
+            : base(game)
         {
-            btnContinue = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/continue"), new Vector2(200, 200));
-            btnNewGame = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/new_game"), new Vector2(200, 300));
-           // background.IsScroll = false;
+            background = new CBusiBackground(game,"bg_pause", 0);
+            btnContinue = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/btn_continue"), new Vector2(268, 250));
+            btnMenu = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/btn_backmenu"), new Vector2(268, 330));
+            btnSave = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/btn_save"), new Vector2(268, 410));
+            btnQuit = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/btn_exit"), new Vector2(268, 490));
+            // background.IsScroll = false;
             listButton.Add(btnContinue);
-            listButton.Add(btnNewGame);
+            listButton.Add(btnMenu);
+            listButton.Add(btnSave);
+            listButton.Add(btnQuit);
+            this.preScene = preScene;
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
 
-            if(btnNewGame.IsClicked)
+            if (btnContinue.IsClicked)
             {
-                Texture2D tmp = game.Content.Load<Texture2D>("Images/Background/space");
-                CBusiPlayer player = new CBusiPlayer(game, game.Content.Load<Texture2D>("Images/Player/player_3"), new Vector2(200, 400), 5, 2, 5, 100);
-                CBusiLevelBase level1 = new CBusiLevelBase(game, new CBusiBackground(tmp, 2), player);
-                game.gameSceneManager.ShowGameScene(level1);
+                preScene.IsPLaying = true;
+                preScene.background.IsScroll = true;
+                game.gameSceneManager.ShowGameScene(preScene);
+                btnContinue.IsClicked = false;
             }
 
-            if (btnContinue.IsClicked)
+            else if (btnMenu.IsClicked)
+            {
+                btnMenu.IsClicked = false;
+                game.gameSceneManager.ShowGameScene(new CGuiWellcome(game));                
+            }
+
+            else if(btnSave.IsClicked)
+            {
+                preScene.IsPLaying = true;
+                CDAOSaveGame objSave = new CDAOSaveGame();
+                objSave.SaveData(preScene);
+                btnSave.IsClicked = false;
+            }
+            
+            else if (btnQuit.IsClicked)
                 game.Exit();
         }
 

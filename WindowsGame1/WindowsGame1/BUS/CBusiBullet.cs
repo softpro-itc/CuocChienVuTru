@@ -27,9 +27,11 @@ namespace CuocChienVuTru.BUS
         /// <param name="speed">tốc độ di chuyển</param>
         /// <param name="damage">mức sát thương</param>
         /// <param name="owner">sở hữu(enemy, player)</param>
-        public CBusiBullet(Game1 game, Texture2D skin, Vector2 position, int speed, int damage, Owner owner)
-            : base(game, skin, position, speed, damage)
+        public CBusiBullet(Game1 game, string skinName, Vector2 position, int speed, int damage, Owner owner)
+            : base(game, skinName, position, speed, damage)
         {
+            FolderSkin = "Images/Bullet/";
+            LoadContent(skinName);
             this.owner = owner;
         }
         public override void Update(GameTime gameTime)
