@@ -2,7 +2,6 @@ Content\Images\Effect\no.xnb
 Content\Images\Player\player_1.xnb
 Content\Images\Bullet\bullet_1.xnb
 Content\Images\Enemy\enemy.xnb
-Content\Images\Item\star.xnb
 Content\Images\Button\sound.xnb
 Content\Images\Button\sound_off.xnb
 Content\Images\Button\HealthBar.xnb
@@ -10,6 +9,9 @@ Content\Images\Background\space.xnb
 Content\Images\Bullet\bullet_2.xnb
 Content\Images\Player\player_2.xnb
 Content\Images\Effect\effect_2.xnb
+Content\Images\Global\cursor.xnb
+Content\Images\Item\star.xnb
+Content\Images\Player\player_3.xnb
 Content\Font\fontMain.xnb
 Content\Sound\hover.xnb
 Content\Sound\clicked.xnb
@@ -19,6 +21,7 @@ Content\Sound\button-45.xnb
 Content\Sound\button-45.wma
 Content\Sound\background1.xnb
 Content\Sound\background1.wma
+<<<<<<< HEAD
 Content\Images\Global\cursor.xnb
 Content\Images\Player\player_3.xnb
 Content\Images\Button\btn_continue.xnb
@@ -56,3 +59,5 @@ Content\Images\Background\bg_level4_2.xnb
 Content\Images\Background\bg_level5_1.xnb
 Content\Images\Background\bg_level5_2.xnb
 Content\Images\Enemy\boss_1.xnb
+=======
+>>>>>>> 35d59e885628251c014e2008a0eff6271a932873

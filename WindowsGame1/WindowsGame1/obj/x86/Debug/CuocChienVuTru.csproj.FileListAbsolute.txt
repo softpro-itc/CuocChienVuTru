@@ -58,6 +58,7 @@ E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\obj\x86\Debug\CuocCh
 E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\obj\x86\Debug\CuocChienVuTru.pdb
 E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Global\cursor.xnb
 E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Player\player_3.xnb
+<<<<<<< HEAD
 E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\btn_continue.xnb
 E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\btn_exit.xnb
 E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\btn_help.xnb
@@ -93,3 +94,8 @@ E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Conten
 E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Background\bg_level5_1.xnb
 E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Background\bg_level5_2.xnb
 E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Enemy\boss_1.xnb
+=======
+E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\obj\x86\Debug\CuocChienVuTru.csprojResolveAssemblyReference.cache
+E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\obj\x86\Debug\CuocChienVuTru.exe
+>>>>>>> 35d59e885628251c014e2008a0eff6271a932873

@@ -91,6 +91,21 @@
     <Compile Include="BUS\CBusiLevelBase.cs" />
     <Compile Include="DAO\CDAOLoadGame.cs" />
     <Compile Include="DAO\CDAOSaveGame.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="DTO\CInfoAnimation.cs" />
+    <Compile Include="DTO\CInfoBackground.cs" />
+    <Compile Include="DTO\CInfoBullet.cs" />
+    <Compile Include="DTO\CInfoButton.cs" />
+    <Compile Include="DTO\CInfoEnemy.cs" />
+    <Compile Include="DTO\CInfoGameObject.cs" />
+    <Compile Include="DTO\CInfoGameObjectAl.cs" />
+    <Compile Include="DTO\CInfoGameSceneBase.cs" />
+    <Compile Include="DTO\CInfoGameSceneManager.cs" />
+    <Compile Include="DTO\CInfoItem.cs" />
+    <Compile Include="DTO\CInfoLevelBase.cs" />
+    <Compile Include="DTO\CInfoPlayer.cs" />
+>>>>>>> 35d59e885628251c014e2008a0eff6271a932873
     <Compile Include="Global\CGlobalDictionary.cs" />
     <Compile Include="Global\CGlobalItem.cs" />
     <Compile Include="GUI\CGuiHelp.cs" />
