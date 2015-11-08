@@ -62,3 +62,6 @@ E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\obj\x86\Debug\CuocCh
 E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\obj\x86\Debug\CuocChienVuTru.pdb
 E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Global\cursor.xnb
 E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Player\player_3.xnb
+E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\obj\x86\Debug\CuocChienVuTru.csprojResolveAssemblyReference.cache
+E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\obj\x86\Debug\CuocChienVuTru.exe
