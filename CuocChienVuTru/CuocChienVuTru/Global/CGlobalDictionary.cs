@@ -14,11 +14,12 @@ namespace CuocChienVuTru.Global
 
         public CGlobalDictionary(Game1 game)
         {
-            ListSoundEffect.Add("clicked", game.Content.Load<SoundEffect>("Sound/clicked"));
-            ListSoundEffect.Add("explode", game.Content.Load<SoundEffect>("Sound/explode"));
-            ListSoundEffect.Add("hover", game.Content.Load<SoundEffect>("Sound/hover"));
-            ListSoundEffect.Add("shoot", game.Content.Load<SoundEffect>("Sound/shoot"));
-            ListSoundBG.Add("bg1", game.Content.Load<Song>("Sound/background1"));
+            ListSoundEffect.Add("clicked", game.Content.Load<SoundEffect>("Sound/Effect/clicked"));
+            ListSoundEffect.Add("explode", game.Content.Load<SoundEffect>("Sound/Effect/explode"));
+            ListSoundEffect.Add("hover", game.Content.Load<SoundEffect>("Sound/Effect/hover"));
+            ListSoundEffect.Add("shoot", game.Content.Load<SoundEffect>("Sound/Effect/shoot"));
+            ListSoundEffect.Add("item", game.Content.Load<SoundEffect>("Sound/Effect/item_1"));
+            ListSoundEffect.Add("player_die", game.Content.Load<SoundEffect>("Sound/Effect/player_die"));
         }
 
     }

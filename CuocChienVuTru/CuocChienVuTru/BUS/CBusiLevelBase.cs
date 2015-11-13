@@ -16,6 +16,10 @@ namespace CuocChienVuTru.BUS
     public class CBusiLevelBase : CBusiGameSceneBase
     {
         protected CInfoLevelBase dto;
+        private Texture2D lblScore;
+        private Vector2 posScore;
+        private Texture2D lblLife;
+        private Vector2 posLife;
 
         public CInfoLevelBase Dto
         {
@@ -25,7 +29,11 @@ namespace CuocChienVuTru.BUS
 
         public CBusiLevelBase(CInfoLevelBase info) : base(info) 
         {
-           dto = info;
+            dto = info;
+            lblScore = dto.Game.Content.Load<Texture2D>("Images/Label/lbl_score");
+            lblLife = dto.Game.Content.Load<Texture2D>("Images/Label/lbl_life");
+            posScore = new Vector2(10, 10);
+            posLife = new Vector2(800, 550);
         }
 
         //public CBusiLevelBase() { }
@@ -35,6 +43,7 @@ namespace CuocChienVuTru.BUS
                       
             base.Update(gameTime);
 
+            //pause
             if (dto.CglobalFunc.KeyboardRelease(Keys.Escape))
             {
                 dto.IsPLaying = !dto.IsPLaying;
@@ -43,7 +52,14 @@ namespace CuocChienVuTru.BUS
 
             if (dto.IsPLaying)
             {
-                if (dto.Player.Dto.Hp == 0)
+
+                if (Dto.Player.Dto.Score >= Dto.PointDestination)
+                {
+                    Dto.Boss.Dto.Visible = true;
+                    Dto.Boss.Update(gameTime);
+                }
+
+                if (dto.Player.Dto.Hp <= 0)
                 {
                     dto.Player.Dto.Visible = false;
                     dto.Player.Dto.Animation.Dto.IsVisible = false;
@@ -195,6 +211,7 @@ namespace CuocChienVuTru.BUS
                 if(dto.ListItem[i].Dto.Bound.Intersects(dto.Player.Dto.Bound))
                 {
                     dto.ListEffect.Add(new CBusiAnimation(new CInfoAnimation(dto.Game, "Images/Effect/effect_2", dto.ListItem[i].Dto.Position, 30, 128, 118, 8, 1)));
+                    dto.Game.cglobalDic.ListSoundEffect["item"].Play();
                     dto.ListItem.RemoveAt(i);
                     i--;
                 }
@@ -225,8 +242,14 @@ namespace CuocChienVuTru.BUS
             //vẽ các hiệu ứng
             foreach (CBusiAnimation a in dto.ListEffect)
                 a.Draw(spriteBatch);
-            spriteBatch.DrawString(dto.CglobalVar.font, "Score: " + dto.Player.Dto.Score, new Vector2(10,10), Color.White);
-            spriteBatch.DrawString(dto.CglobalVar.font, "Damage: " + dto.Player.Dto.Damage, new Vector2(10, 30), Color.White);            
+
+            spriteBatch.Draw(lblScore, posScore, Color.White);
+            spriteBatch.DrawString(dto.CglobalVar.font, dto.Player.Dto.Score.ToString(), new Vector2(40,10), Color.White);
+
+            for (int i = 1; i <= dto.Player.Dto.Life; i++ )
+            {
+                spriteBatch.Draw(lblLife, new Vector2(posLife.X - i*50, posLife.Y), Color.White);
+            }
         }
     }
 }

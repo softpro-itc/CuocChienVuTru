@@ -278,7 +278,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Effect\effect_player_2.xnb</Output>
-      <Time>2015-11-13T14:56:35.8162959+07:00</Time>
+      <Time>2015-11-13T16:36:01.3083382+07:00</Time>
     </Item>
     <Item>
       <Source>Images\Effect\no.png</Source>
@@ -306,15 +306,6 @@
       <Options>None</Options>
       <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Enemy\enemy.xnb</Output>
       <Time>2015-11-13T14:56:47.6909651+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\PLayer\player_1.png</Source>
-      <Name>Images\PLayer\player_1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\PLayer\player_1.xnb</Output>
-      <Time>2015-11-13T14:57:00.1366645+07:00</Time>
     </Item>
     <Item>
       <Source>Images\PLayer\player_2.png</Source>
@@ -371,60 +362,163 @@
       <Time>2015-11-13T15:00:47.5566128+07:00</Time>
     </Item>
     <Item>
-      <Source>Sound\background1.mp3</Source>
-      <Name>Sound\background1</Name>
+      <Source>Images\Label\lbl_life.png</Source>
+      <Name>Images\Label\lbl_life</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Label\lbl_life.xnb</Output>
+      <Time>2015-11-13T15:41:38.7903178+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Label\lbl_score.png</Source>
+      <Name>Images\Label\lbl_score</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\Label\lbl_score.xnb</Output>
+      <Time>2015-11-13T15:41:38.8033031+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\Background\background1.mp3</Source>
+      <Name>Sound\Background\background1</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\background1.xnb</Output>
-      <Extra>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\background1.wma</Extra>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Background\background1.xnb</Output>
+      <Extra>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Background\background1.wma</Extra>
       <Time>2015-11-13T15:01:11.9579881+07:00</Time>
     </Item>
     <Item>
-      <Source>Sound\button-45.mp3</Source>
-      <Name>Sound\button-45</Name>
+      <Source>Sound\Background\1.mp3</Source>
+      <Name>Sound\Background\1</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\button-45.xnb</Output>
-      <Extra>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\button-45.wma</Extra>
-      <Time>2015-11-13T15:01:11.9619885+07:00</Time>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Background\1.xnb</Output>
+      <Extra>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Background\1.wma</Extra>
+      <Time>2015-11-13T16:30:56.8390105+07:00</Time>
     </Item>
     <Item>
-      <Source>Sound\clicked.wav</Source>
-      <Name>Sound\clicked</Name>
+      <Source>Sound\Background\2.mp3</Source>
+      <Name>Sound\Background\2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Background\2.xnb</Output>
+      <Extra>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Background\2.wma</Extra>
+      <Time>2015-11-13T16:30:56.850011+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\Background\3.mp3</Source>
+      <Name>Sound\Background\3</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Background\3.xnb</Output>
+      <Extra>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Background\3.wma</Extra>
+      <Time>2015-11-13T16:30:56.9080104+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\Background\5.mp3</Source>
+      <Name>Sound\Background\5</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Background\5.xnb</Output>
+      <Extra>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Background\5.wma</Extra>
+      <Time>2015-11-13T16:30:56.9140263+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\Background\6.mp3</Source>
+      <Name>Sound\Background\6</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Background\6.xnb</Output>
+      <Extra>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Background\6.wma</Extra>
+      <Time>2015-11-13T16:30:56.920015+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\Effect\clicked.wav</Source>
+      <Name>Sound\Effect\clicked</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\clicked.xnb</Output>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Effect\clicked.xnb</Output>
       <Time>2015-11-13T15:01:11.9799908+07:00</Time>
     </Item>
     <Item>
-      <Source>Sound\explode.wav</Source>
-      <Name>Sound\explode</Name>
+      <Source>Sound\Effect\explode.wav</Source>
+      <Name>Sound\Effect\explode</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\explode.xnb</Output>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Effect\explode.xnb</Output>
       <Time>2015-11-13T15:01:11.9839952+07:00</Time>
     </Item>
     <Item>
-      <Source>Sound\hover.wav</Source>
-      <Name>Sound\hover</Name>
+      <Source>Sound\Effect\hover.wav</Source>
+      <Name>Sound\Effect\hover</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\hover.xnb</Output>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Effect\hover.xnb</Output>
       <Time>2015-11-13T15:01:11.9899884+07:00</Time>
     </Item>
     <Item>
-      <Source>Sound\shoot.wav</Source>
-      <Name>Sound\shoot</Name>
+      <Source>Sound\Effect\shoot.wav</Source>
+      <Name>Sound\Effect\shoot</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\shoot.xnb</Output>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Effect\shoot.xnb</Output>
       <Time>2015-11-13T15:01:11.9949877+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\Effect\item_1.wav</Source>
+      <Name>Sound\Effect\item_1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Effect\item_1.xnb</Output>
+      <Time>2015-11-13T16:21:52.4841261+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\Effect\item_2.wav</Source>
+      <Name>Sound\Effect\item_2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Effect\item_2.xnb</Output>
+      <Time>2015-11-13T16:21:52.4901267+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\Effect\shoot_1.wav</Source>
+      <Name>Sound\Effect\shoot_1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Effect\shoot_1.xnb</Output>
+      <Time>2015-11-13T16:22:57.2767805+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\Effect\player_die.wav</Source>
+      <Name>Sound\Effect\player_die</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Sound\Effect\player_die.xnb</Output>
+      <Time>2015-11-13T17:31:51.6987604+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\PLayer\player_1.png</Source>
+      <Name>Images\PLayer\player_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\XNA\CuocChienVuTru\CuocChienVuTru\CuocChienVuTru\bin\x86\Debug\Content\Images\PLayer\player_1.xnb</Output>
+      <Time>2015-11-13T14:57:00.1366645+07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
