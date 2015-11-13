@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using CuocChienVuTru.BUS;
 using CuocChienVuTru.CGlobal;
 using CuocChienVuTru.GUI;
+using CuocChienVuTru.DTO;
 
 namespace CuocChienVuTru.BUS
 {
@@ -17,9 +18,9 @@ namespace CuocChienVuTru.BUS
 
         public CBusiGameSceneManager(Game1 game)
         {
-            menuStart = new CGuiWellcome(game);
+            menuStart = new CGuiWellcome(new CInfoGameSceneBase(game));
             active = menuStart;
-            active.isVisible = true;
+            active.Dto.IsVisible = true;
         }
 
         public void ShowGameScene(CBusiGameSceneBase gameScene)

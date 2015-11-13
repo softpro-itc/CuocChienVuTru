@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using CuocChienVuTru.CGlobal;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -7,15 +8,28 @@ using System.Text;
 
 namespace CuocChienVuTru.DTO
 {
-    class CInfoBackground
+    public class CInfoBackground
     {
         private Texture2D textureBackground1;
+        private Texture2D textureBackground2;
         private Vector2 positionBackground1;
         private Vector2 positionBackground2;
         private int speed;
         private bool isScroll;
+        private Game1 game;
+
+        public Game1 Game
+        {
+            get { return game; }
+            set { game = value; }
+        }
 
 
+        public Texture2D TextureBackground2
+        {
+            get { return textureBackground2; }
+            set { textureBackground2 = value; }
+        }
 
         public Texture2D TextureBackground1
         {
@@ -42,6 +56,10 @@ namespace CuocChienVuTru.DTO
             get { return isScroll; }
             set { isScroll = value; }
         }
+
+
+
+        #region khai báo constructer
         /// <summary>
         /// phương thức khởi tạo 
         /// </summary>
@@ -50,7 +68,7 @@ namespace CuocChienVuTru.DTO
         /// <param name="positionBackground2">vị trí ảnh 2</param>
         /// <param name="speed">tốc độ</param>
         /// <param name="isScroll">cho phép cuộn</param>
-        public CInfoBackground( Texture2D textureBackground1,Vector2 positionBackground1, Vector2 positionBackground2,int speed, bool isScroll)
+        public CInfoBackground(Texture2D textureBackground1, Vector2 positionBackground1, Vector2 positionBackground2, int speed, bool isScroll)
         {
             this.textureBackground1 = textureBackground1;
             this.positionBackground1 = positionBackground1;
@@ -58,5 +76,31 @@ namespace CuocChienVuTru.DTO
             this.speed = speed;
             this.isScroll = isScroll;
         }
+        public CInfoBackground(Game1 game, string bgName, int speed)
+        {
+            this.game = game;
+            this.textureBackground1 = this.textureBackground2 = game.Content.Load<Texture2D>("Images/Background/" + bgName);
+            positionBackground1 = new Vector2(0, 0);
+            positionBackground2 = new Vector2(0, -CGlobalVariable.WINDOW_HEIGHT);
+            isScroll = true;
+            this.speed = speed;
+        }
+
+        /// <summary>
+        /// phương thức khởi tạo
+        /// </summary>
+        /// <param name="textureBackground1">hình ảnh</param>
+        /// <param name="speed">tốc độ cuộn</param>
+        public CInfoBackground(Game1 game, string bgName1, string bgName2, int speed)
+        {
+            this.textureBackground1 = game.Content.Load<Texture2D>("Images/Background/" + bgName1);
+            this.textureBackground2 = game.Content.Load<Texture2D>("Images/Background/" + bgName2);
+            positionBackground1 = new Vector2(0, 0);
+            positionBackground2 = new Vector2(0, -CGlobalVariable.WINDOW_HEIGHT);
+            isScroll = true;
+            this.speed = speed;
+            this.game = game;
+        }
+        #endregion
     }
 }

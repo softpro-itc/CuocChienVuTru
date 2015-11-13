@@ -7,37 +7,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CuocChienVuTru.CGlobal;
+using CuocChienVuTru.DTO;
 
 namespace CuocChienVuTru.BUS
 {
     public class CBusiEnemy : CBusiGameObjectAI
     {
-        #region khai báo biến
-        private int maxBullet = 3;
-        #endregion
+        private CInfoEnemy dto;
 
-
-        #region constructor
-        public CBusiEnemy(Game1 game, string skinName, Vector2 position, int speed, int damage)
-            : base(game, skinName, position, speed, damage)
+        public CInfoEnemy Dto
         {
-            FolderSkin = "Images/Enemy/";
-            LoadContent(skinName);
+            get { return dto; }
+            set { dto = value; }
         }
 
-        public CBusiEnemy(Game1 game, string skinName, Vector2 position, int speed, int damage, int hp)
-            : base(game, skinName, position, speed, damage)
+        #region constructor
+        public CBusiEnemy(CInfoEnemy dto)
         {
-            this.hp = hp;
-            FolderSkin = "Images/Enemy/";
-            LoadContent(skinName);
+            this.dto = dto;
+            dto.FolderSkin = "Images/Enemy/";
+            LoadContent(dto.SkinName);
         }
         #endregion
 
         #region khai báo phương thức
+
+        public void LoadContent(string skinName)
+        {
+            dto.Skin = dto.Game.Content.Load<Texture2D>(dto.FolderSkin + skinName);
+            dto.Bound = new Rectangle((int)dto.Position.X, (int)dto.Position.Y, dto.Skin.Width, dto.Skin.Height);
+        }
+
         public override void Update(GameTime gameTime)
         {
-            timerAddBullet += gameTime.ElapsedGameTime.Milliseconds;
+            dto.TimerAddBullet += gameTime.ElapsedGameTime.Milliseconds;
 
             //di chuyển
             Move();
@@ -45,50 +48,48 @@ namespace CuocChienVuTru.BUS
             Shot();
             //quản lý đạn
             BulletManagement(gameTime);
-
-            bound.Y = (int)position.Y;
-            bound.X = (int)position.X;
+            dto.Bound = new Rectangle((int)dto.Position.X, (int)dto.Position.Y, dto.Skin.Width, dto.Skin.Height);
         }
 
         public virtual void Move()
         {
             //if(cglobal.random.Next(0,1) == 1)
-            //    position.X += speed;
+            //    dto.Position.X += dto.Speed;
             //else
-            //    position.X -= speed;
-            position.Y += speed;
+            //    dto.Position.X -= dto.Speed;
+            dto.Position = new Vector2( dto.Position.X, dto.Position.Y + dto.Speed);
         }
 
         public void Shot()
         {
-            if (timerAddBullet >= IntevalAddBullet && listBullet.Count <= maxBullet)
+            if (dto.TimerAddBullet >= dto.IntevalAddBullet && dto.ListBullet.Count <= dto.MaxBullet && dto.Position.X >= 0)
             {
-                timerAddBullet -= IntevalAddBullet;
-                CBusiBullet b = new CBusiBullet(game, "bullet_2", new Vector2(position.X + 15, position.Y + 10), 2, 1, CBusiBullet.Owner.enemy);
-                listBullet.Add(b);
+                dto.TimerAddBullet -= dto.IntevalAddBullet;
+                CBusiBullet b = new CBusiBullet(new CInfoBullet(dto.Game, "bullet_2", new Vector2(dto.Position.X + 15, dto.Position.Y + 10), 2, 1, CInfoBullet.Owner.enemy));
+                dto.ListBullet.Add(b);
             }
         }
 
         public void BulletManagement(GameTime gameTime)
         {
             //cập nhật đạn
-            for (int i = 0; i < listBullet.Count; i++)
+            for (int i = 0; i < dto.ListBullet.Count; i++)
             {
-                if (listBullet[i].Position.Y >= CGlobalVariable.WINDOW_HEIGHT)
+                if (dto.ListBullet[i].Dto.Position.Y >= CGlobalVariable.WINDOW_HEIGHT)
                 {
-                    listBullet.RemoveAt(i);
+                    dto.ListBullet.RemoveAt(i);
                     i--;
                 }
                 else
-                    listBullet[i].Update(gameTime);
+                    dto.ListBullet[i].Update(gameTime);
             }
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            foreach (CBusiBullet b in listBullet)
+            foreach (CBusiBullet b in dto.ListBullet)
                 b.Draw(spriteBatch);
-            spriteBatch.Draw(skin, bound, Color.White);
+            spriteBatch.Draw(dto.Skin, dto.Bound, Color.White);
         }
 
         #endregion

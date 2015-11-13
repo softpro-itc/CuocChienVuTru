@@ -7,7 +7,7 @@ using System.Text;
 
 namespace CuocChienVuTru.DTO
 {
-    class CInfoButton
+    public class CInfoButton
     {
         private Texture2D texture;
         private Vector2 position;
@@ -48,6 +48,7 @@ namespace CuocChienVuTru.DTO
             set { isHover = value; }
         }
 
+        #region khai báo constructer
         /// <summary>
         /// phương thức khởi tạo
         /// </summary>
@@ -57,7 +58,7 @@ namespace CuocChienVuTru.DTO
         /// <param name="colorBrush">màu của button</param>
         /// <param name="isClicked">thuộc tính click</param>
         /// <param name="isHover">thuộc tính hover</param>
-        public CInfoButton( Texture2D texture, Vector2 position, Rectangle bound,Color colorBrush, bool isClicked, bool isHover)
+        public CInfoButton(Texture2D texture, Vector2 position, Rectangle bound, Color colorBrush, bool isClicked, bool isHover)
         {
             this.texture = texture;
             this.position = position;
@@ -66,5 +67,15 @@ namespace CuocChienVuTru.DTO
             this.isClicked = isClicked;
             this.isHover = isHover;
         }
+        public CInfoButton(Texture2D texture, Vector2 position)
+        {
+            this.texture = texture;
+            this.position = position;
+            bound = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
+            isClicked = isHover = false;
+            colorBrush = Color.White;
+        }
+
+        #endregion
     }
 }

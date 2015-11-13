@@ -7,7 +7,7 @@ using System.Text;
 
 namespace CuocChienVuTru.DTO
 {
-    class CInfoAnimation
+    public class CInfoAnimation
     {
 
         Texture2D texture;   //hình ảnh
@@ -85,6 +85,7 @@ namespace CuocChienVuTru.DTO
             set { interval = value; }
         }
 
+        #region khai báo constructer
         /// <summary>
         /// phương thức khởi tạo
         /// </summary>
@@ -100,7 +101,7 @@ namespace CuocChienVuTru.DTO
         /// <param name="isAllowControl">cho phép điều khiển hay không</param>
         /// <param name="timer">biến thời gian</param>
         /// <param name="interval">thời gian thực hiện 1 frame</param>
-        public CInfoAnimation( Texture2D texture,Rectangle rectangle,Vector2 position, int currentFrame, int maxFrame ,int frameHeight, int frameWidth,int life ,bool isVisible , bool isAllowControl ,float timer, float interval )
+        public CInfoAnimation(Texture2D texture, Rectangle rectangle, Vector2 position, int currentFrame, int maxFrame, int frameHeight, int frameWidth, int life, bool isVisible, bool isAllowControl, float timer, float interval)
         {
             this.texture = texture;
             this.rectangle = rectangle;
@@ -116,5 +117,29 @@ namespace CuocChienVuTru.DTO
             this.interval = interval;
 
         }
+        public CInfoAnimation(Game1 game, string skinName, Vector2 newPosition, int speed, int NewFrameWidth, int newFrameHeight, int newMaxFrame, int count)
+        {
+            texture = game.Content.Load<Texture2D>(skinName);
+            position = newPosition;
+            frameWidth = NewFrameWidth;
+            frameHeight = newFrameHeight;
+            maxFrame = newMaxFrame;
+            life = count * maxFrame;
+            interval = speed;
+        }
+
+
+        public CInfoAnimation(Game1 game, string skinName, Vector2 newPosition, int speed, int NewFrameWidth, int newFrameHeight, int newMaxFrame, int currentFrame, bool isAllowControl)
+        {
+            texture = game.Content.Load<Texture2D>(skinName);
+            position = newPosition;
+            frameWidth = NewFrameWidth;
+            frameHeight = newFrameHeight;
+            maxFrame = newMaxFrame;
+            this.currentFrame = currentFrame;
+            this.isAllowControl = isAllowControl;
+            interval = speed;
+        }
+        #endregion
     }
 }

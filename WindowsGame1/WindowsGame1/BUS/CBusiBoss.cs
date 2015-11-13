@@ -4,30 +4,38 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CuocChienVuTru.DTO;
 
 namespace CuocChienVuTru.BUS
 {
     public class CBusiBoss : CBusiEnemy
     {
-        CBusiAnimation animation;
-        bool isMoveLeft = true;
-        public CBusiBoss(Game1 game, string skinName, Vector2 position, int speed, int damage, int hp)
-            : base(game, skinName, position, speed, damage)
+        private CInfoBoss dto;
+
+        public CInfoBoss Dto
         {
-            animation = new CBusiAnimation(game, FolderSkin + skinName, position, 1000, 311, 320, 3, 1, true);
+            get { return dto; }
+            set { dto = value; }
+        }
+
+        public CBusiBoss(CInfoBoss dto)
+            : base(dto)
+        {
+            this.dto = dto;
+            dto.Animation = new CBusiAnimation(new CInfoAnimation(dto.Game, dto.FolderSkin + dto.SkinName, dto.Position, 1000, 311, 320, 3, 1, true));
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            animation.Update(gameTime);
-            animation.Position = position;
-            if (position.X <= 0)
-                isMoveLeft = false;
-            if(position.X >= 800)
-                isMoveLeft = true;
+            dto.Animation.Update(gameTime);
+            dto.Animation.Dto.Position = dto.Position;
+            if (dto.Position.X <= 0)
+                dto.IsMoveLeft = false;
+            if (dto.Position.X >= 800)
+                dto.IsMoveLeft = true;
 
-            if (isMoveLeft)
+            if (dto.IsMoveLeft)
                 MoveLeft();
             else
                 MoveRight();
@@ -40,21 +48,21 @@ namespace CuocChienVuTru.BUS
 
         private void MoveLeft()
         {
-            animation.CurrentFrame = 0;
-            position.X -= 2f;
+            dto.Animation.Dto.CurrentFrame = 0;
+            dto.Position = new Vector2(dto.Position.X - 2f, dto.Position.Y);
         }
 
         private void MoveRight()
         {
-            animation.CurrentFrame = 2;
-            position.X += 2f;
+            dto.Animation.Dto.CurrentFrame = 0;
+            dto.Position = new Vector2(dto.Position.X + 2f, dto.Position.Y);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            foreach (CBusiBullet b in listBullet)
+            foreach (CBusiBullet b in dto.ListBullet)
                 b.Draw(spriteBatch);
-            animation.Draw(spriteBatch);
+            dto.Animation.Draw(spriteBatch);
         }
 
     }

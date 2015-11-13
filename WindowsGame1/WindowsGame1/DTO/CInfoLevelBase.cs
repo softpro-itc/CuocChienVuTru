@@ -1,6 +1,9 @@
 ﻿using CuocChienVuTru.BUS;
 using CuocChienVuTru.CGlobal;
 using CuocChienVuTru.Global;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,64 +11,93 @@ using System.Text;
 
 namespace CuocChienVuTru.DTO
 {
-    class CInfoLevelBase:CInfoGameSceneBase
+    public class CInfoLevelBase:CInfoGameSceneBase
     {
-        private List<CBusiEnemy> listEnemy = new List<CBusiEnemy>();
-        private CBusiPlayer player;
-        private int timeAddEnemy = 500;
-        private int timerEnemy = 0;
-        private int maxEnemy = 10;
-        private List<CBusiItem> listItem = new List<CBusiItem>();
-        private int timeAddItem = 500;      
-        private int timerItem = 0;   
-        private int maxItem = 3;
+        protected List<CBusiEnemy> listEnemy = new List<CBusiEnemy>();
+        protected CBusiPlayer player;
+        protected int timeAddEnemy = 500;
+        protected int timerEnemy = 0;
+        protected int maxEnemy = 10;
+        protected List<CBusiItem> listItem = new List<CBusiItem>();
+        protected int timeAddItem = 500;      
+        protected int timerItem = 0;   
+        protected int maxItem = 3;
+        protected int pointDestination;
+        protected List<CBusiAnimation> listEffect = new List<CBusiAnimation>();
+        protected bool isPLaying = true;
+        protected CBusiBoss boss;
 
-       
-        protected List<CBusiEnemy> ListEnemy
+        public CBusiBoss Boss
+        {
+            get { return boss; }
+            set { boss = value; }
+        }
+
+        public int PointDestination
+        {
+            get { return pointDestination; }
+            set { pointDestination = value; }
+        }
+
+        public bool IsPLaying
+        {
+            get { return isPLaying; }
+            set { isPLaying = value; }
+        }
+
+        public List<CBusiAnimation> ListEffect
+        {
+            get { return listEffect; }
+            set { listEffect = value; }
+        }
+
+        public List<CBusiEnemy> ListEnemy
         {
             get { return listEnemy; }
             set { listEnemy = value; }
         }
-        protected CBusiPlayer Player
+        public CBusiPlayer Player
         {
             get { return player; }
             set { player = value; }
         }
-        protected int TimeAddEnemy
+        public int TimeAddEnemy
         {
             get { return timeAddEnemy; }
             set { timeAddEnemy = value; }
         }
-        protected int TimerEnemy
+        public int TimerEnemy
         {
             get { return timerEnemy; }
             set { timerEnemy = value; }
         }
-        protected int MaxEnemy
+        public int MaxEnemy
         {
             get { return maxEnemy; }
             set { maxEnemy = value; }
         }
-        protected List<CBusiItem> ListItem
+        public List<CBusiItem> ListItem
         {
             get { return listItem; }
             set { listItem = value; }
         }
-        protected int TimeAddItem
+        public int TimeAddItem
         {
             get { return timeAddItem; }
             set { timeAddItem = value; }
         }
-        protected int TimerItem
+        public int TimerItem
         {
             get { return timerItem; }
             set { timerItem = value; }
         }
-        protected int MaxItem
+        public int MaxItem
         {
             get { return maxItem; }
             set { maxItem = value; }
         }
+
+        #region khai báo constructer
         /// <summary>
         /// phương thức khởi tạo màn chơi
         /// </summary>
@@ -85,8 +117,8 @@ namespace CuocChienVuTru.DTO
         /// <param name="game">đối tượng game</param>
         /// <param name="cglobalFunc">đối tượng hàm toàn cục</param>
         /// <param name="cglobalDic">đối tượng dictionnary toàn cục</param>
-        public CInfoLevelBase(List<CBusiEnemy> listEnemy , CBusiPlayer player,int timeAddEnemy , int timerEnemy , int maxEnemy , List<CBusiItem> listItem, int timeAddItem,int timerItem , int maxItem , List<CBusiButton> listButton,CBusiBackground background,CGlobalVariable cglobalVar,bool isVisible, Game1 game,CGloabalFunction cglobalFunc, CGlobalDictionary cglobalDic)
-            :base(  listButton, background, cglobalVar, isVisible,  game, cglobalFunc,  cglobalDic)
+        public CInfoLevelBase(List<CBusiEnemy> listEnemy, CBusiPlayer player, int timeAddEnemy, int timerEnemy, int maxEnemy, List<CBusiItem> listItem, int timeAddItem, int timerItem, int maxItem, List<CBusiButton> listButton, CBusiBackground background, CGlobalVariable cglobalVar, bool isVisible, Game1 game, CGloabalFunction cglobalFunc, CGlobalDictionary cglobalDic)
+            : base(listButton, background, cglobalVar, isVisible, game, cglobalFunc, cglobalDic)
         {
             this.listEnemy = listEnemy;
             this.player = player;
@@ -98,5 +130,17 @@ namespace CuocChienVuTru.DTO
             this.timerItem = timerItem;
             this.maxItem = maxItem;
         }
+        public CInfoLevelBase(Game1 game, CBusiBackground background, CBusiPlayer player)
+            : base(game, background)
+        {
+            this.player = player;
+            listButton.Add(new CBusiButton( new CInfoButton(game.Content.Load<Texture2D>("Images/Button/sound"), new Vector2(0, CGlobalVariable.WINDOW_HEIGHT - 50))));
+            MediaPlayer.Play(cglobalDic.ListSoundBG["bg1"]);
+        }
+
+        public CInfoLevelBase(Game1 game) : base(game) { }
+
+        public CInfoLevelBase() { }
+        #endregion
     }
 }

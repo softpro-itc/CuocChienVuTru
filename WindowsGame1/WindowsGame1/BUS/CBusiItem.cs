@@ -5,55 +5,45 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using CuocChienVuTru.DTO;
 
 namespace CuocChienVuTru.BUS
 {
     public class CBusiItem : CBusiGameObject
     {
-        CBusiAnimation animation;
-        bool isAnimation = true;
 
-        public bool IsAnimation
+        CInfoItem dto;
+
+        public CInfoItem Dto
         {
-            get { return isAnimation; }
-            set { isAnimation = value; }
+            get { return dto; }
+            set { dto = value; }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="game"></param>
-        /// <param name="skin"></param>
-        /// <param name="position"></param>
-        /// <param name="speed"></param>
-        /// <param name="damage"></param>
-        public CBusiItem(Game1 game, string skinName, Vector2 position, int speed, int damage)
-            : base(game, skinName, position, speed, damage)
+        public CBusiItem(CInfoItem info)
         {
-            FolderSkin = "Images/Item/";
-            animation = new CBusiAnimation(game, FolderSkin + skinName, position, 80, 50, 50, 5, -1);
-            LoadContent(skinName);
+            this.dto = info;
         }
 
         public override void Update(GameTime gameTime)
         {
-            position.Y += speed;
-            bound.Y = (int)position.Y;
+            dto.Position = new Vector2(dto.Position.X, dto.Position.Y + dto.Speed);
+            dto.Bound = new Rectangle((int)dto.Position.X, (int)dto.Position.Y, dto.Skin.Width - ((dto.Animation.Dto.MaxFrame-1) * dto.Animation.Dto.FrameWidth), dto.Skin.Height);
 
-            if (isAnimation)
+            if (dto.IsAnimation)
             {
-                animation.Update(gameTime);
-                animation.Position = position;
+                dto.Animation.Update(gameTime);
+                dto.Animation.Dto.Position = dto.Position;
             }
 
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if(!isAnimation)
-                spriteBatch.Draw(skin, bound, Color.White);
+            if (!dto.IsAnimation)
+                spriteBatch.Draw(dto.Skin, dto.Bound, Color.White);
             else
-                animation.Draw(spriteBatch);
+                dto.Animation.Draw(spriteBatch);
         }
     }
 }

@@ -8,18 +8,18 @@ using System.Text;
 
 namespace CuocChienVuTru.DTO
 {
-    class CInfoGameSceneBase
+    public class CInfoGameSceneBase
     {
-        private List<CBusiButton> listButton;
-        private CBusiBackground background;
-        private CGlobalVariable cglobalVar;
-        private bool isVisible;
-        private Game1 game;
-        private CGloabalFunction cglobalFunc;
-        private CGlobalDictionary cglobalDic;
+        protected List<CBusiButton> listButton;
+        protected CBusiBackground background;
+        protected CGlobalVariable cglobalVar;
+        protected bool isVisible;
+        protected Game1 game;
+        protected CGloabalFunction cglobalFunc;
+        protected CGlobalDictionary cglobalDic;
 
        
-        #region khai báo biến
+        #region khai báo propeties
         public List<CBusiButton> ListButton
         {
             get { return listButton; }
@@ -40,23 +40,25 @@ namespace CuocChienVuTru.DTO
             get { return isVisible; }
             set { isVisible = value; }
         }
-        protected Game1 Game
+        public Game1 Game
         {
             get { return game; }
             set { game = value; }
         }
-        protected CGloabalFunction CglobalFunc
+        public CGloabalFunction CglobalFunc
         {
             get { return cglobalFunc; }
             set { cglobalFunc = value; }
         }
-        protected CGlobalDictionary CglobalDic
+        public CGlobalDictionary CglobalDic
         {
             get { return cglobalDic; }
             set { cglobalDic = value; }
         }
 
          #endregion
+
+        #region khai báo constructer
         /// <summary>
         /// phương thức khởi tạo màn hình 
         /// </summary>
@@ -67,7 +69,7 @@ namespace CuocChienVuTru.DTO
         /// <param name="game">đối tượng game</param>
         /// <param name="cglobalFunc">đối tượng hàm toàn cục</param>
         /// <param name="cglobalDic">đối tượng dictionnary toàn cục</param>
-        public CInfoGameSceneBase(  List<CBusiButton> listButton,CBusiBackground background,CGlobalVariable cglobalVar,bool isVisible, Game1 game,CGloabalFunction cglobalFunc, CGlobalDictionary cglobalDic)
+        public CInfoGameSceneBase(List<CBusiButton> listButton, CBusiBackground background, CGlobalVariable cglobalVar, bool isVisible, Game1 game, CGloabalFunction cglobalFunc, CGlobalDictionary cglobalDic)
         {
             this.listButton = listButton;
             this.background = background;
@@ -77,6 +79,34 @@ namespace CuocChienVuTru.DTO
             this.cglobalFunc = cglobalFunc;
             this.cglobalDic = cglobalDic;
         }
+        public CInfoGameSceneBase(Game1 game, CBusiBackground background)
+        {
+            this.background = background;
+            isVisible = false;
+            listButton = new List<CBusiButton>();
+            this.game = game;
+            cglobalVar = game.cglobalVar;
+            cglobalFunc = game.cglobalFunc;
+            cglobalDic = game.cglobalDic;
+        }
+
+        public CInfoGameSceneBase(Game1 game)
+        {
+            this.game = game;
+            listButton = new List<CBusiButton>();
+            cglobalVar = game.cglobalVar;
+            cglobalFunc = game.cglobalFunc;
+            cglobalDic = game.cglobalDic;
+        }
+
+        public CInfoGameSceneBase()
+        {
+            cglobalVar = game.cglobalVar;
+            cglobalFunc = game.cglobalFunc;
+            cglobalDic = game.cglobalDic;
+        }
+
+        #endregion
 
     }
 }

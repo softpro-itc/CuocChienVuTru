@@ -6,108 +6,44 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using CuocChienVuTru.CGlobal;
+using CuocChienVuTru.DTO;
 
 namespace CuocChienVuTru.BUS
 {
     public class CBusiBackground
     {
-        private Texture2D textureBackground1;
-        private Texture2D textureBackground2;
-        private Vector2 positionBackground1;
-        private Vector2 positionBackground2;
-        private int speed;
-        private List<CBusiItem> listItem = new List<CBusiItem>();
-        private int timerAddItem = 0;
+        private CInfoBackground dto;
 
-        public int TimerAddItem
+        public CInfoBackground Dto
         {
-            get { return timerAddItem; }
-            set { timerAddItem = value; }
-        }
-        private int intervalAddItem = 500;
-        private int maxItem = -1;
-
-        public int MaxItem
-        {
-            get { return maxItem; }
-            set { maxItem = value; }
-        }
-        private Game1 game;
-
-        public List<CBusiItem> ListItem
-        {
-            get { return listItem; }
-            set { listItem = value; }
+            get { return dto; }
+            set { dto = value; }
         }
 
-        public int Speed
+        public CBusiBackground(CInfoBackground dto)
         {
-            get { return speed; }
-            set { speed = value; }
+            this.dto = dto;
         }
 
-        private bool isScroll;
-
-        public bool IsScroll
+        public void Update(GameTime GameTime)
         {
-            get { return isScroll; }
-            set { isScroll = value; }
-        }
-
-        /// <summary>
-        /// phương thức khởi tạo
-        /// </summary>
-        /// <param name="textureBackground1">hình ảnh</param>
-        /// <param name="speed">tốc độ cuộn</param>
-        public CBusiBackground(Game1 game, string bgName, int speed)
-        {
-            this.game = game;
-            this.textureBackground1 = this.textureBackground2 = game.Content.Load<Texture2D>("Images/Background/" + bgName);
-            positionBackground1 = new Vector2(0, 0);
-            positionBackground2 = new Vector2(0, -CGlobalVariable.WINDOW_HEIGHT);
-            isScroll = true;
-            this.speed = speed;
-        }
-
-        /// <summary>
-        /// phương thức khởi tạo
-        /// </summary>
-        /// <param name="textureBackground1">hình ảnh</param>
-        /// <param name="speed">tốc độ cuộn</param>
-        public CBusiBackground(Game1 game, string bgName1, string bgName2, int speed)
-        {
-            this.textureBackground1 = game.Content.Load<Texture2D>("Images/Background/" + bgName1);
-            this.textureBackground2 = game.Content.Load<Texture2D>("Images/Background/" + bgName2);
-            positionBackground1 = new Vector2(0, 0);
-            positionBackground2 = new Vector2(0, -CGlobalVariable.WINDOW_HEIGHT);
-            isScroll = true;
-            this.speed = speed;
-            this.game = game;
-        }
-
-        public void Update(GameTime gameTime)
-        {
-            if (isScroll)
+            if (dto.IsScroll)
             {
-                positionBackground1.Y += speed;
-                if (positionBackground1.Y == CGlobalVariable.WINDOW_HEIGHT)
-                    positionBackground1.Y = -CGlobalVariable.WINDOW_HEIGHT;
+                dto.PositionBackground1 = new Vector2(dto.PositionBackground1.X, dto.PositionBackground1.Y + dto.Speed);
+                if (dto.PositionBackground1.Y == CGlobalVariable.WINDOW_HEIGHT)
+                    dto.PositionBackground1 = new Vector2(dto.PositionBackground1.X, -CGlobalVariable.WINDOW_HEIGHT);
 
-                positionBackground2.Y += speed;
-                if (positionBackground2.Y == CGlobalVariable.WINDOW_HEIGHT)
-                    positionBackground2.Y = -CGlobalVariable.WINDOW_HEIGHT;
+                dto.PositionBackground2 = new Vector2(dto.PositionBackground2.X, dto.PositionBackground2.Y + dto.Speed);
+                if (dto.PositionBackground2.Y == CGlobalVariable.WINDOW_HEIGHT)
+                    dto.PositionBackground2 = new Vector2(dto.PositionBackground2.X, -CGlobalVariable.WINDOW_HEIGHT);
             }
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(textureBackground1, positionBackground1, Color.White);
-            spriteBatch.Draw(textureBackground2, positionBackground2, Color.White);
-
-            if (listItem.Count > 0)
-                foreach (CBusiItem item in listItem)
-                    item.Draw(spriteBatch);
+            spriteBatch.Draw(dto.TextureBackground1, dto.PositionBackground1, Color.White);
+            spriteBatch.Draw(dto.TextureBackground2, dto.PositionBackground2, Color.White);
         }
     }
 }

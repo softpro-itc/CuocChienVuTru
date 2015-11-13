@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CuocChienVuTru.DTO;
 
 namespace CuocChienVuTru.GUI
 {
@@ -12,20 +13,20 @@ namespace CuocChienVuTru.GUI
     {
         CBusiButton btnBack;
 
-        public CGuiHelp(Game1 game)
-            : base(game)
+        public CGuiHelp(CInfoGameSceneBase dto)
+            : base(dto)
         {
-            background = new CBusiBackground(game, "bg_help", 0);
-            btnBack = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/btn_back"), new Vector2(0, 500));
-            listButton.Add(btnBack);
+            Dto.Background = new CBusiBackground(new CInfoBackground(dto.Game, "bg_help", 0));
+            btnBack = new CBusiButton(new CInfoButton(dto.CglobalVar.Content.Load<Texture2D>("Images/Button/btn_back"), new Vector2(0, 500)));
+            Dto.ListButton.Add(btnBack);
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
 
-            if (btnBack.IsClicked)
-                game.gameSceneManager.ShowGameScene(new CGuiWellcome(game));
+            if (btnBack.Dto.IsClicked)
+                Dto.Game.gameSceneManager.ShowGameScene(new CGuiWellcome(new CInfoGameSceneBase(Dto.Game)));
         }
 
         public override void Draw(SpriteBatch spriteBatch)

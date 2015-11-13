@@ -5,139 +5,81 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Input;
+using CuocChienVuTru.DTO;
 
 namespace CuocChienVuTru.BUS
 {
     public class CBusiAnimation
     {
-        Texture2D texture;
-        Rectangle rectangle;
 
-        public Rectangle Rectangle
-        {
-            get { return rectangle; }
-            set { rectangle = value; }
-        }
-        Vector2 position;
+        CInfoAnimation dto;
 
-        public Vector2 Position
+        public CInfoAnimation Dto
         {
-            get { return position; }
-            set { position = value; }
+            get { return dto; }
+            set { dto = value; }
         }
 
-        int currentFrame = 0;
-
-        public int CurrentFrame
+        public CBusiAnimation(CInfoAnimation dto)
         {
-            get { return currentFrame; }
-            set { currentFrame = value; }
-        }
-        int maxFrame = 0;
-        int frameHeight;
-        int frameWidth;
-        int life = 12;
-
-        public bool isVisible = true;
-        private bool isAllowControl = false;
-
-        float timer = 0;
-        float interval = 80;
-
-        public float Interval
-        {
-            get { return interval; }
-            set { interval = value; }
+            this.dto = dto;
         }
 
-        /// <summary>
-        /// phương thức khởi tạo
-        /// </summary>
-        /// <param name="newTexture">hình ảnh animation</param>
-        /// <param name="newPosition">vị trí của animation</param>
-        /// <param name="speed">tốc độ chạy của frame</param>
-        /// <param name="NewFrameWidth">chiều rộng của 1 frame</param>
-        /// <param name="newFrameHeight">chiều cao của 1 frame</param>
-        /// <param name="newMaxFrame">số frame trong hình</param>
-        /// <param name="count">số lân thực hiện animation</param>
-        public CBusiAnimation(Game1 game, string skinName, Vector2 newPosition, int speed, int NewFrameWidth, int newFrameHeight, int newMaxFrame, int count)
-        {
-            texture = game.Content.Load<Texture2D>(skinName);
-            position = newPosition;
-            frameWidth = NewFrameWidth;
-            frameHeight = newFrameHeight;
-            maxFrame = newMaxFrame;
-            life = count * maxFrame;
-            interval = speed;
-        }
-
-
-        public CBusiAnimation(Game1 game, string skinName, Vector2 newPosition, int speed, int NewFrameWidth, int newFrameHeight, int newMaxFrame, int currentFrame, bool isAllowControl)
-        {
-            texture = game.Content.Load<Texture2D>(skinName);
-            position = newPosition;
-            frameWidth = NewFrameWidth;
-            frameHeight = newFrameHeight;
-            maxFrame = newMaxFrame;
-            this.currentFrame = currentFrame;
-            this.isAllowControl = isAllowControl;
-            interval = speed;
-        }
 
         public void Update(GameTime gameTime)
         {
-            if (isVisible)
+            if (dto.IsVisible)
             {
-                if (!isAllowControl)
+                if (!dto.IsAllowControl)
                 {
-                    if (life == 0)
+                    if (dto.Life == 0)
                     {
-                        isVisible = false;
+                        dto.IsVisible = false;
                         return;
                     }
                 }
 
                 //chuyển frame
-                timer += gameTime.ElapsedGameTime.Milliseconds;
-                if (timer >= interval)
+                dto.Timer += gameTime.ElapsedGameTime.Milliseconds;
+                if (dto.Timer >= dto.Interval)
                 {
-                    if (!isAllowControl)
+                    if (!dto.IsAllowControl)
                     {
-                        currentFrame++;
-                        if (currentFrame > maxFrame - 1)
-                            currentFrame = 0;
+                        dto.CurrentFrame++;
+                        if (dto.CurrentFrame > dto.MaxFrame - 1)
+                            dto.CurrentFrame = 0;
                     }
                     else
                     {
                         //cập nhật frame khi bấm phím
                         KeyboardState key = Keyboard.GetState();
                         if (key.IsKeyDown(Keys.Left))
-                            currentFrame--;
+                            dto.CurrentFrame--;
                         else if (key.IsKeyDown(Keys.Right))
-                            currentFrame++;
+                            dto.CurrentFrame++;
                         else
-                            currentFrame = 1;
+                            dto.CurrentFrame = 1;
 
                         //giới hạn phạm vi của frame
-                        if (currentFrame < 0)
-                            currentFrame = 0;
-                        if (currentFrame > maxFrame - 1)
-                            currentFrame = maxFrame - 1;
+                        if (dto.CurrentFrame < 0)
+                            dto.CurrentFrame = 0;
+                        if (dto.CurrentFrame > dto.MaxFrame - 1)
+                            dto.CurrentFrame = dto.MaxFrame - 1;
                     }
 
-                    timer -= interval;
-                    if (life > 0)
-                        life--;
+                    dto.Timer -= dto.Interval;
+                    if (dto.Life > 0)
+                        dto.Life--;
                 }
 
-                rectangle = new Rectangle(currentFrame * frameWidth, 0, frameWidth, frameHeight);
+                dto.Rectangle = new Rectangle(dto.CurrentFrame * dto.FrameWidth, 0, dto.FrameWidth, dto.FrameHeight);
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(isVisible)
-                spriteBatch.Draw(texture, position, rectangle, Color.White);
+            if(dto.IsVisible)
+                spriteBatch.Draw(dto.Texture, dto.Position, dto.Rectangle, Color.White);
         }
     }
 }

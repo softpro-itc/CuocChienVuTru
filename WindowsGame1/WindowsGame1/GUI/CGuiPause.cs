@@ -7,31 +7,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CuocChienVuTru.DAO;
+using CuocChienVuTru.DTO;
 
 namespace CuocChienVuTru.GUI
 {
     public class CGuiPause : CBusiGameSceneBase
     {
         CBusiButton btnContinue;
-        CBusiButton btnNewGame;
         CBusiButton btnSave;
         CBusiButton btnMenu;
         CBusiButton btnQuit;
         CBusiLevelBase preScene;
 
-        public CGuiPause(Game1 game, CBusiLevelBase preScene)
-            : base(game)
+        public CGuiPause(CInfoGameSceneBase  info, CBusiLevelBase preScene)
+            : base(info)
         {
-            background = new CBusiBackground(game,"bg_pause", 0);
-            btnContinue = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/btn_continue"), new Vector2(268, 250));
-            btnMenu = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/btn_backmenu"), new Vector2(268, 330));
-            btnSave = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/btn_save"), new Vector2(268, 410));
-            btnQuit = new CBusiButton(cglobalVar.Content.Load<Texture2D>("Images/Button/btn_exit"), new Vector2(268, 490));
+            Dto.Background = new CBusiBackground(new CInfoBackground(info.Game,"bg_pause", 0));
+            btnContinue = new CBusiButton(new CInfoButton(info.Game.Content.Load<Texture2D>("Images/Button/btn_continue"), new Vector2(268, 250)));
+            btnMenu = new CBusiButton(new CInfoButton(info.Game.Content.Load<Texture2D>("Images/Button/btn_backmenu"), new Vector2(268, 330)));
+            btnSave = new CBusiButton(new CInfoButton(info.Game.Content.Load<Texture2D>("Images/Button/btn_save"), new Vector2(268, 410)));
+            btnQuit = new CBusiButton(new CInfoButton(info.Game.Content.Load<Texture2D>("Images/Button/btn_exit"), new Vector2(268, 490)));
             // background.IsScroll = false;
-            listButton.Add(btnContinue);
-            listButton.Add(btnMenu);
-            listButton.Add(btnSave);
-            listButton.Add(btnQuit);
+            Dto.ListButton.Add(btnContinue);
+            Dto.ListButton.Add(btnMenu);
+            Dto.ListButton.Add(btnSave);
+            Dto.ListButton.Add(btnQuit);
             this.preScene = preScene;
         }
 
@@ -39,30 +39,30 @@ namespace CuocChienVuTru.GUI
         {
             base.Update(gameTime);
 
-            if (btnContinue.IsClicked)
+            if (btnContinue.Dto.IsClicked)
             {
-                preScene.IsPLaying = true;
-                preScene.background.IsScroll = true;
-                game.gameSceneManager.ShowGameScene(preScene);
-                btnContinue.IsClicked = false;
+                preScene.Dto.IsPLaying = true;
+                preScene.Dto.Background.Dto.IsScroll = true;
+                Dto.Game.gameSceneManager.ShowGameScene(preScene);
+                btnContinue.Dto.IsClicked = false;
             }
 
-            else if (btnMenu.IsClicked)
+            else if (btnMenu.Dto.IsClicked)
             {
-                btnMenu.IsClicked = false;
-                game.gameSceneManager.ShowGameScene(new CGuiWellcome(game));                
+                btnMenu.Dto.IsClicked = false;
+                Dto.Game.gameSceneManager.ShowGameScene(new CGuiWellcome(new CInfoGameSceneBase(Dto.Game)));                
             }
 
-            else if(btnSave.IsClicked)
+            else if(btnSave.Dto.IsClicked)
             {
-                preScene.IsPLaying = true;
+                preScene.Dto.IsPLaying = true;
                 CDAOSaveGame objSave = new CDAOSaveGame();
                 objSave.SaveData(preScene);
-                btnSave.IsClicked = false;
+                btnSave.Dto.IsClicked = false;
             }
             
-            else if (btnQuit.IsClicked)
-                game.Exit();
+            else if (btnQuit.Dto.IsClicked)
+                Dto.Game.Exit();
         }
 
         public override void Draw(SpriteBatch spriteBatch)

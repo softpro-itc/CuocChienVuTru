@@ -1,4 +1,5 @@
 ﻿using CuocChienVuTru.CGlobal;
+using CuocChienVuTru.Global;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -8,7 +9,7 @@ using System.Text;
 
 namespace CuocChienVuTru.DTO
 {
-    class CInfoGameObject
+    public class CInfoGameObject
     {
         #region khai báo biến
         protected Texture2D skin;
@@ -19,11 +20,34 @@ namespace CuocChienVuTru.DTO
         protected int damage;
         protected bool visible;
         protected Game1 game;
-        protected CGlobalVariable cglobal;
+        protected CGlobalVariable cglobalVar;
+        protected CGloabalFunction cglobalFunc;
+        protected CGlobalDictionary cglobalDic;        
         protected SpriteFont font;
+        protected string folderSkin;
+        protected string skinName;
         #endregion
 
         #region khai báo propeties
+
+        public CGloabalFunction CglobalFunc
+        {
+            get { return cglobalFunc; }
+            set { cglobalFunc = value; }
+        }
+
+        public CGlobalDictionary CglobalDic
+        {
+            get { return cglobalDic; }
+            set { cglobalDic = value; }
+        }
+
+        public CGlobalVariable CglobalVar
+        {
+            get { return cglobalVar; }
+            set { cglobalVar = value; }
+        }
+
         public Texture2D Skin
         {
             get { return skin; }
@@ -63,8 +87,28 @@ namespace CuocChienVuTru.DTO
             set { visible = value; }
         }
 
+        public Game1 Game
+        {
+            get { return game; }
+            set { game = value; }
+        }
+
+
+        public string SkinName
+        {
+            get { return skinName; }
+            set { skinName = value; }
+        }
+
+        public string FolderSkin
+        {
+            get { return folderSkin; }
+            set { folderSkin = value; }
+        }
 
         #endregion
+
+        #region constructor
         /// <summary>
         /// phương thức khởi tạo game
         /// </summary>
@@ -78,19 +122,45 @@ namespace CuocChienVuTru.DTO
         /// <param name="game">đối tượng game</param>
         /// <param name="cglobal">đối tượng toàn cục</param>
         /// <param name="font">đối tượng chữ</param>
-        public CInfoGameObject(Texture2D skin,Vector2 position,Rectangle bound,int speed,int hp,int damage,bool visible,Game1 game,CGlobalVariable cglobal,SpriteFont font)
+        public CInfoGameObject(Game1 game, Texture2D skin, Vector2 position, Rectangle bound, int speed, int hp, int damage, bool visible)
         {
-             this.skin=skin;
-            this.position=position;
-            this.bound=bound;
-            this.speed=speed;
-            this.hp=hp;
-            this.damage=damage;
-            this.visible=visible;
-            this.game=game;
-            this.cglobal=cglobal;
-            this.font = font;
-           
+            this.skin = skin;
+            this.position = position;
+            this.bound = bound;
+            this.speed = speed;
+            this.hp = hp;
+            this.damage = damage;
+            this.visible = visible;
+            this.game = game;
+            font = game.Content.Load<SpriteFont>("Font/fontMain");
+            cglobalVar = game.cglobalVar;
+            cglobalDic = game.cglobalDic;
+            cglobalFunc = game.cglobalFunc;
+
         }
+
+        public CInfoGameObject(Game1 game, string skinName, Vector2 position, int speed, int damage)
+        {
+            this.visible = true;
+            this.position = position;
+            this.speed = speed;
+            this.damage = damage;
+            this.skinName = skinName;
+            //this.bound = new Rectangle((int)position.X, (int)position.Y, skin.Width, skin.Height);
+            this.game = game;
+            font = game.Content.Load<SpriteFont>("Font/fontMain");
+            cglobalVar = game.cglobalVar;
+            cglobalDic = game.cglobalDic;
+            cglobalFunc = game.cglobalFunc;
+        }
+
+        public void LoadContent(string skinName)
+        {
+            skin = game.Content.Load<Texture2D>(folderSkin + skinName);
+            this.bound = new Rectangle((int)position.X, (int)position.Y, skin.Width, skin.Height);
+        }
+
+        public CInfoGameObject() { }
+        #endregion
     }
 }

@@ -9,75 +9,49 @@ using CuocChienVuTru.CGlobal;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using CuocChienVuTru.GUI;
+using CuocChienVuTru.DTO;
 
 namespace CuocChienVuTru.BUS
 {
     public class CBusiLevelBase : CBusiGameSceneBase
     {
-        protected List<CBusiEnemy> listEnemy = new List<CBusiEnemy>();
-        protected CBusiPlayer player;
-        protected int timeAddEnemy = 500;
-        protected int timerEnemy = 0;
-        protected int maxEnemy = 10;
+        protected CInfoLevelBase dto;
 
-        protected List<CBusiItem> listItem = new List<CBusiItem>();
-        protected int timeAddItem = 500;
-        protected int timerItem = 0;
-        protected int maxItem = 3;
-
-        protected int pointDestination;
-        protected CBusiBoss boss;
-
-        protected List<CBusiAnimation> listEffect = new List<CBusiAnimation>();
-
-        private bool isPLaying = true;
-
-        public bool IsPLaying
+        public CInfoLevelBase Dto
         {
-            get { return isPLaying; }
-            set { isPLaying = value; }
+            get { return dto; }
+            set { dto = value; }
         }
 
-
-        /// <summary>
-        /// phương thước khởi tạo
-        /// </summary>
-        /// <param name="game">đối tượng game chính</param>
-        /// <param name="background">đối tượng hình nền</param>
-        /// <param name="player">đối tượng nhân vật người chơi</param>
-        public CBusiLevelBase(Game1 game, CBusiBackground background, CBusiPlayer player) :  base(game, background)
+        public CBusiLevelBase(CInfoLevelBase info) : base(info) 
         {
-            this.player = player;
-            listButton.Add(new CBusiButton(game.Content.Load<Texture2D>("Images/Button/sound"), new Vector2(0, CGlobalVariable.WINDOW_HEIGHT-50)));
-            MediaPlayer.Play(cglobalDic.ListSoundBG["bg1"]);
+           dto = info;
         }
 
-        public CBusiLevelBase(Game1 game) : base(game) { }
-
-        public CBusiLevelBase() { }
+        //public CBusiLevelBase() { }
 
         public override void Update(GameTime gameTime)
         {
                       
             base.Update(gameTime);
 
-            if (cglobalFunc.KeyboardRelease(Keys.Escape))
+            if (dto.CglobalFunc.KeyboardRelease(Keys.Escape))
             {
-                isPLaying = !isPLaying;
-                background.IsScroll = !background.IsScroll;
+                dto.IsPLaying = !dto.IsPLaying;
+                dto.Background.Dto.IsScroll = !dto.Background.Dto.IsScroll;
             }
 
-            if (isPLaying)
+            if (dto.IsPLaying)
             {
-                if (player.Hp == 0)
+                if (dto.Player.Dto.Hp == 0)
                 {
-                    player.Visible = false;
-                    player.Animation.isVisible = false;
+                    dto.Player.Dto.Visible = false;
+                    dto.Player.Dto.Animation.Dto.IsVisible = false;
                 }
                 else
                 {
                     CheckCollision();
-                    player.Update(gameTime);
+                    dto.Player.Update(gameTime);
                 }
                 EnemyManager(gameTime);
                 ItemManager(gameTime);
@@ -85,7 +59,7 @@ namespace CuocChienVuTru.BUS
             }
             else
             {
-                game.gameSceneManager.ShowGameScene(new CGuiPause(game, this));
+                dto.Game.gameSceneManager.ShowGameScene(new CGuiPause(new CInfoGameSceneBase(dto.Game), this));
             }
 
         }
@@ -96,9 +70,9 @@ namespace CuocChienVuTru.BUS
         /// <param name="gameTime"></param>
         private void EffectManager(GameTime gameTime)
         {
-            for (int i = 0; i < listEffect.Count; i++)
+            for (int i = 0; i < dto.ListEffect.Count; i++)
             {
-                listEffect[i].Update(gameTime);
+                dto.ListEffect[i].Update(gameTime);
             }
         }
 
@@ -108,27 +82,29 @@ namespace CuocChienVuTru.BUS
         /// <param name="gameTime"></param>
         private void ItemManager(GameTime gameTime)
         {
-            timerItem += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
+            dto.TimerItem += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             //thêm item
-            if (timerItem >= timeAddItem && listItem.Count <= maxItem)
+            if (dto.TimerItem >= dto.TimeAddItem && dto.ListItem.Count <= dto.MaxItem)
             {
-                listItem.Add(new CBusiItem(game, "star", new Vector2(cglobalVar.random.Next(0, CGlobalVariable.WINDOW_HEIGHT), cglobalVar.random.Next(-100, 0)), 1, 2));
-                timerItem = 0;
+                CInfoItem dtoItem = new CInfoItem(dto.Game, "star", new Vector2(dto.CglobalVar.random.Next(0, CGlobal.CGlobalVariable.WINDOW_WIDTH), dto.CglobalVar.random.Next(-100, 0)), 1, 2);
+                dtoItem.IsAnimation = true;
+                dto.ListItem.Add(new CBusiItem(dtoItem));
+                dto.TimerItem = 0;
             }
 
             //xóa item khi vượt quá màn hình
-            for (int i = 0; i < listItem.Count; i++)
+            for (int i = 0; i < dto.ListItem.Count; i++)
             {
-                if (listItem[i].Position.Y > CGlobalVariable.WINDOW_HEIGHT)
+                if (dto.ListItem[i].Dto.Position.Y > CGlobalVariable.WINDOW_HEIGHT)
                 {
-                    listItem.RemoveAt(i);
+                    dto.ListItem.RemoveAt(i);
                     i--;
                 }
             }
 
             //cập nhật đạn
-            for (int i = 0; i < listItem.Count; i++)
-                listItem[i].Update(gameTime);
+            for (int i = 0; i < dto.ListItem.Count; i++)
+                dto.ListItem[i].Update(gameTime);
         }
 
         /// <summary>
@@ -138,31 +114,31 @@ namespace CuocChienVuTru.BUS
         private void EnemyManager(GameTime gameTime)
         {
             //thêm quái vào danh sách
-            timerEnemy += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-            if (timerEnemy >= timeAddEnemy && listEnemy.Count <= maxEnemy)
+            dto.TimerEnemy += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
+            if (dto.TimerEnemy >= dto.TimeAddEnemy && dto.ListEnemy.Count <= dto.MaxEnemy)
             {
-                listEnemy.Add(new CBusiEnemy(game, "enemy", new Vector2(cglobalVar.random.Next(0, CGlobalVariable.WINDOW_HEIGHT), cglobalVar.random.Next(-100, 0)), 1, 2, 2));
-                timerEnemy = 0;
+                dto.ListEnemy.Add(new CBusiEnemy(new CInfoEnemy(dto.Game, "enemy", new Vector2(dto.CglobalVar.random.Next(0, CGlobalVariable.WINDOW_HEIGHT), dto.CglobalVar.random.Next(-100, 0)), 1, 2, 2)));
+                dto.TimerEnemy = 0;
             }
 
             //xóa quái ra khỏi danh sáhc khi vượt quá màn hình, hoặc hết máu
-            for (int i = 0; i < listEnemy.Count; i++)
+            for (int i = 0; i < dto.ListEnemy.Count; i++)
             {
-                if (listEnemy[i].Position.Y > CGlobalVariable.WINDOW_HEIGHT || listEnemy[i].Hp <= 0)
+                if (dto.ListEnemy[i].Dto.Position.Y > CGlobalVariable.WINDOW_HEIGHT || dto.ListEnemy[i].Dto.Hp <= 0)
                 {
-                    if (listEnemy[i].Hp <= 0)
+                    if (dto.ListEnemy[i].Dto.Hp <= 0)
                     {
-                        player.Score += listEnemy[i].Damage;
-                        game.cglobalDic.ListSoundEffect["explode"].Play();
+                        dto.Player.Dto.Score += dto.ListEnemy[i].Dto.Damage;
+                        dto.Game.cglobalDic.ListSoundEffect["explode"].Play();
                     }
 
-                    listEnemy.RemoveAt(i);
+                    dto.ListEnemy.RemoveAt(i);
                     i--;
                 }
             }
             //cập nhật quái
-            for (int i = 0; i < listEnemy.Count; i++)
-                listEnemy[i].Update(gameTime);
+            for (int i = 0; i < dto.ListEnemy.Count; i++)
+                dto.ListEnemy[i].Update(gameTime);
         }
 
         /// <summary>
@@ -170,55 +146,56 @@ namespace CuocChienVuTru.BUS
         /// </summary>
         public void CheckCollision()
         {
-            for(int i = 0; i < listEnemy.Count; i++)
+            for(int i = 0; i < dto.ListEnemy.Count; i++)
             {
                 //vòng lặp đạn của người chơi
-                for(int j = 0; j < player.ListBullet.Count; j ++)
+                for(int j = 0; j < dto.Player.Dto.ListBullet.Count; j ++)
                 {
                     //quái trúng đạn
-                    if (player.ListBullet[j].Bound.Intersects(listEnemy[i].Bound))
+                    if (dto.Player.Dto.ListBullet[j].Dto.Bound.Intersects(dto.ListEnemy[i].Dto.Bound))
                     {
-                        listEffect.Add(new CBusiAnimation(game, "Images/Effect/no", listEnemy[i].Position, 50, 65, 64, 6, 1));
-                        listEnemy[i].Hp -= player.ListBullet[j].Damage;
+                        dto.ListEffect.Add(new CBusiAnimation(new CInfoAnimation(dto.Game, "Images/Effect/no", dto.ListEnemy[i].Dto.Position, 50, 65, 64, 6, 1)));
+                        dto.ListEnemy[i].Dto.Hp -= dto.Player.Dto.ListBullet[j].Dto.Damage;
                     }
                 }
 
                 //vòng lặp đạn của quái
-                for (int j = 0; j < listEnemy[i].ListBullet.Count; j++)
+                for (int j = 0; j < dto.ListEnemy[i].Dto.ListBullet.Count; j++)
                 {
                     //người chơi bị trúng đạn
-                    if (listEnemy[i].ListBullet[j].Bound.Intersects(player.Bound))
+                    if (dto.ListEnemy[i].Dto.ListBullet[j].Dto.Bound.Intersects(dto.Player.Dto.Bound))
                     {
-                        listEffect.Add(new CBusiAnimation(game, "Images/Effect/no", player.PosCenter, 50, 65, 64, 6, 1));
-                        player.Hp -= listEnemy[i].ListBullet[j].Damage;
-                        game.cglobalDic.ListSoundEffect["explode"].Play();
+                        dto.ListEffect.Add(new CBusiAnimation(new CInfoAnimation(dto.Game, "Images/Effect/no", dto.Player.Dto.PosCenter, 50, 65, 64, 6, 1)));
+                        dto.Player.Dto.Hp -= dto.ListEnemy[i].Dto.ListBullet[j].Dto.Damage;
+                        dto.Game.cglobalDic.ListSoundEffect["explode"].Play();
 
                         //xóa viên đạn khi va chạm với người chơi
-                        listEnemy[i].ListBullet.RemoveAt(j);
+                        dto.ListEnemy[i].Dto.ListBullet.RemoveAt(j);
                         j--;
                     }
                 }
 
                 //người chơi va chạm với quái
-                if (listEnemy[i].Bound.Intersects(player.Bound))
+                if (dto.ListEnemy[i].Dto.Bound.Intersects(dto.Player.Dto.Bound))
                 {
-                    listEffect.Add(new CBusiAnimation(game, "Images/Effect/no", player.PosCenter, 50, 65, 64, 6, 1));
-                    listEnemy[i].Hp -= player.Damage;
-                    player.Hp -= listEnemy[i].Damage;
+                    dto.ListEffect.Add(new CBusiAnimation(new CInfoAnimation(dto.Game, "Images/Effect/no", dto.Player.Dto.PosCenter, 50, 65, 64, 6, 1)));
+                    dto.ListEnemy[i].Dto.Hp -= dto.Player.Dto.Damage;
+                    dto.Player.Dto.Hp -= dto.ListEnemy[i].Dto.Damage;
 
                     //xóa quái khi va chạm với người chơi
-                    listEnemy.RemoveAt(i);
+                    dto.ListEnemy.RemoveAt(i);
                     i--;
-                    game.cglobalDic.ListSoundEffect["explode"].Play();
+                    dto.Game.cglobalDic.ListSoundEffect["explode"].Play();
                 }
             }
 
-            for(int i = 0; i < listItem.Count; i++)
+            //vòng lặp item
+            for(int i = 0; i < dto.ListItem.Count; i++)
             {
-                if(listItem[i].Bound.Intersects(player.Bound))
+                if(dto.ListItem[i].Dto.Bound.Intersects(dto.Player.Dto.Bound))
                 {
-                    listEffect.Add(new CBusiAnimation(game, "Images/Effect/effect_2", player.PosCenter, 30, 128, 118, 8, 1));
-                    listItem.RemoveAt(i);
+                    dto.ListEffect.Add(new CBusiAnimation(new CInfoAnimation(dto.Game, "Images/Effect/effect_2", dto.ListItem[i].Dto.Position, 30, 128, 118, 8, 1)));
+                    dto.ListItem.RemoveAt(i);
                     i--;
                 }
             }
@@ -230,26 +207,26 @@ namespace CuocChienVuTru.BUS
             base.Draw(spriteBatch);
             //vẽ quái
 
-            if (boss.Visible)
-                boss.Draw(spriteBatch);
-            foreach (CBusiEnemy e in listEnemy)
+            if (dto.Boss.Dto.Visible)
+                dto.Boss.Draw(spriteBatch);
+            foreach (CBusiEnemy e in dto.ListEnemy)
                 e.Draw(spriteBatch);
             //vẽ item
-            foreach (CBusiItem i in listItem)
+            foreach (CBusiItem i in dto.ListItem)
                 i.Draw(spriteBatch);
             
            //vẽ các button
-            foreach (CBusiButton b in listButton)
+            foreach (CBusiButton b in dto.ListButton)
                 b.Draw(spriteBatch);
 
             //vẽ người chơi
-            player.Draw(spriteBatch);
+            dto.Player.Draw(spriteBatch);
 
             //vẽ các hiệu ứng
-            foreach (CBusiAnimation a in listEffect)
+            foreach (CBusiAnimation a in dto.ListEffect)
                 a.Draw(spriteBatch);
-            spriteBatch.DrawString(cglobalVar.font, "Score: " + player.Score, new Vector2(10,10), Color.White);
-            spriteBatch.DrawString(cglobalVar.font, "Damage: " + player.Damage, new Vector2(10, 30), Color.White);            
+            spriteBatch.DrawString(dto.CglobalVar.font, "Score: " + dto.Player.Dto.Score, new Vector2(10,10), Color.White);
+            spriteBatch.DrawString(dto.CglobalVar.font, "Damage: " + dto.Player.Dto.Damage, new Vector2(10, 30), Color.White);            
         }
     }
 }

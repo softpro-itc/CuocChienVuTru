@@ -9,82 +9,63 @@ using CuocChienVuTru.CGlobal;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using CuocChienVuTru.Global;
+using CuocChienVuTru.DTO;
 
 namespace CuocChienVuTru.BUS
 {
     public class CBusiGameSceneBase
     {
-        public List<CBusiButton> listButton;
-        public CBusiBackground background;
-        public CGlobalVariable cglobalVar;
-        public bool isVisible;
-        protected Game1 game;
-        protected CGloabalFunction cglobalFunc;
-        protected CGlobalDictionary cglobalDic;
 
-        public CBusiGameSceneBase(Game1 game, CBusiBackground background)
+        CInfoGameSceneBase dto;// = new CInfoGameSceneBase();
+
+        public CInfoGameSceneBase Dto
         {
-            this.background = background;
-            isVisible = false;
-            listButton = new List<CBusiButton>();
-            this.game = game;
-            cglobalVar = game.cglobalVar;
-            cglobalFunc = game.cglobalFunc;
-            cglobalDic = game.cglobalDic;
+            get { return dto; }
+            set { dto = value; }
         }
 
-        public CBusiGameSceneBase(Game1 game) 
+        public CBusiGameSceneBase(CInfoGameSceneBase info)
         {
-            this.game = game;
-            listButton = new List<CBusiButton>();
-            cglobalVar = game.cglobalVar;
-            cglobalFunc = game.cglobalFunc;
-            cglobalDic = game.cglobalDic;
+           dto = info;
         }
 
-        public CBusiGameSceneBase() 
-        {
-            cglobalVar = game.cglobalVar;
-            cglobalFunc = game.cglobalFunc;
-            cglobalDic = game.cglobalDic;
-        }
-
+     
         public void Show()
         {
-            isVisible = true;
+            dto.IsVisible = true;
         }
 
         public void Hidden()
         {
-            isVisible = false;
+            dto.IsVisible = false;
         }
 
-        public virtual void Update(GameTime gameTime)
+        public virtual void Update(GameTime GameTime)
         {
-            cglobalFunc.Update();
-            background.Update(gameTime);
-            cglobalVar.Update();
-            for (int i = 0; i < listButton.Count; i++)
+            dto.CglobalFunc.Update();
+            dto.Background.Update(GameTime);
+            dto.CglobalVar.Update();
+            for (int i = 0; i < dto.ListButton.Count; i++)
             {
-                if (cglobalVar.mouseBound.Intersects(listButton[i].Bound))
+                if (dto.CglobalVar.mouseBound.Intersects(dto.ListButton[i].Dto.Bound))
                 {
-                    if (!listButton[i].IsHover)
-                        cglobalDic.ListSoundEffect["hover"].Play();
-                    listButton[i].IsHover = true;
-                    listButton[i].ColorBrush = Color.Red;
-                    if (cglobalVar.mouse.LeftButton == ButtonState.Pressed)
+                    if (!dto.ListButton[i].Dto.IsHover)
+                        dto.CglobalDic.ListSoundEffect["hover"].Play();
+                    dto.ListButton[i].Dto.IsHover = true;
+                    dto.ListButton[i].Dto.ColorBrush = Color.Red;
+                    if (dto.CglobalVar.mouse.LeftButton == ButtonState.Pressed)
                     {
-                        listButton[i].IsClicked = true;
-                        cglobalDic.ListSoundEffect["clicked"].Play();
+                        dto.ListButton[i].Dto.IsClicked = true;
+                        dto.CglobalDic.ListSoundEffect["clicked"].Play();
                     }
                     else
-                        listButton[i].IsClicked = false;
+                        dto.ListButton[i].Dto.IsClicked = false;
                 }
                 else
                 {
-                    listButton[i].ColorBrush = Color.White;
-                    listButton[i].IsClicked = false;
-                    listButton[i].IsHover = false;
+                    dto.ListButton[i].Dto.ColorBrush = Color.White;
+                    dto.ListButton[i].Dto.IsClicked = false;
+                    dto.ListButton[i].Dto.IsHover = false;
                 }
             }
 
@@ -93,11 +74,11 @@ namespace CuocChienVuTru.BUS
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            if (isVisible)
+            if (dto.IsVisible)
             {
-                background.Draw(spriteBatch);
-                if(listButton.Count > 0)
-                    foreach (CBusiButton b in listButton)
+                dto.Background.Draw(spriteBatch);
+                if(dto.ListButton.Count > 0)
+                    foreach (CBusiButton b in dto.ListButton)
                         b.Draw(spriteBatch);
             }
         }

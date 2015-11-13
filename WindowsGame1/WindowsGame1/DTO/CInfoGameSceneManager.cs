@@ -7,7 +7,7 @@ using System.Text;
 
 namespace CuocChienVuTru.DTO
 {
-    class CInfoGameSceneManager
+    public class CInfoGameSceneManager
     {
         private CGuiWellcome menuStart;
         private CBusiGameSceneBase active;
@@ -23,15 +23,31 @@ namespace CuocChienVuTru.DTO
             get { return active; }
             set { active = value; }
         }
+        #region khai báo constructer
         /// <summary>
         /// phương thức khởi tạo quản lý màn hình
         /// </summary>
         /// <param name="menuStart"> menu bắt đầu</param>
         /// <param name="active">màn hình đang hoạt động</param>
-        public CInfoGameSceneManager( CGuiWellcome menuStart,CBusiGameSceneBase active)
+        public CInfoGameSceneManager(CGuiWellcome menuStart, CBusiGameSceneBase active)
         {
             this.menuStart = menuStart;
             this.active = active;
         }
+
+        public CInfoGameSceneManager(Game1 game)
+        {
+            menuStart = new CGuiWellcome(new CInfoGameSceneBase(game));
+            active = menuStart;
+            active.Dto.IsVisible = true;
+        }
+
+        public void ShowGameScene(CBusiGameSceneBase gameScene)
+        {
+            active.Hidden();
+            active = gameScene;
+            active.Show();
+        }
+        #endregion
     }
 }

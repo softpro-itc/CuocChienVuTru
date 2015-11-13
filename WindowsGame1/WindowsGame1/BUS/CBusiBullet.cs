@@ -5,48 +5,47 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using CuocChienVuTru.DTO;
 
 namespace CuocChienVuTru.BUS
 {
     public class CBusiBullet : CBusiGameObject
     {
-        public enum Owner
-        {
-            enemy,
-            player
-        };
+        private CInfoBullet dto;
 
-        Owner owner;
-
-        /// <summary>
-        /// phương thức khởi tạo
-        /// </summary>
-        /// <param name="game">đối tượng game chính</param>
-        /// <param name="skin">skin</param>
-        /// <param name="position">vị trí</param>
-        /// <param name="speed">tốc độ di chuyển</param>
-        /// <param name="damage">mức sát thương</param>
-        /// <param name="owner">sở hữu(enemy, player)</param>
-        public CBusiBullet(Game1 game, string skinName, Vector2 position, int speed, int damage, Owner owner)
-            : base(game, skinName, position, speed, damage)
+        public CInfoBullet Dto
         {
-            FolderSkin = "Images/Bullet/";
-            LoadContent(skinName);
-            this.owner = owner;
+            get { return dto; }
+            set { dto = value; }
         }
+
+        public CBusiBullet(CInfoBullet dto)
+            : base()
+        {
+            this.dto = dto;
+            dto.FolderSkin = "Images/Bullet/";
+            LoadContent(dto.SkinName);
+        }
+
+        public void LoadContent(string skinName)
+        {
+            dto.Skin = dto.Game.Content.Load<Texture2D>(dto.FolderSkin + skinName);
+            dto.Bound = new Rectangle((int)dto.Position.X, (int)dto.Position.Y, dto.Skin.Width, dto.Skin.Height);
+        }
+
         public override void Update(GameTime gameTime)
         {
-            if (this.owner == Owner.enemy)
-                position.Y += speed;
+            if (dto.Owner1 == CInfoBullet.Owner.enemy)
+                dto.Position = new Vector2(dto.Position.X, dto.Position.Y+dto.Speed);
             else
-                position.Y -= speed;
+                dto.Position = new Vector2(dto.Position.X, dto.Position.Y - dto.Speed);
 
-            bound.Y = (int)position.Y;
+            dto.Bound = new Rectangle((int)dto.Position.X, (int)dto.Position.Y, dto.Skin.Width, dto.Skin.Height);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(skin, bound, Color.White);
+            spriteBatch.Draw(dto.Skin,dto.Bound, Color.White);
         }
 
     }

@@ -7,22 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Effect\no.xnb</Output>
-      <Time>2015-11-07T15:24:17.8065888+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Player\player_1.png</Source>
-      <Name>Images\Player\player_1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-<<<<<<< HEAD
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Player\player_1.xnb</Output>
-      <Time>2015-11-07T19:28:14.8607779+07:00</Time>
-=======
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Player\player_1.xnb</Output>
-      <Time>2015-11-07T15:24:17.8065888+07:00</Time>
->>>>>>> 35d59e885628251c014e2008a0eff6271a932873
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Effect\no.xnb</Output>
+      <Time>2015-10-22T13:03:57.2736011+07:00</Time>
     </Item>
     <Item>
       <Source>Images\Bullet\bullet_1.png</Source>
@@ -30,47 +16,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Bullet\bullet_1.xnb</Output>
-      <Time>2015-11-07T15:24:17.7909636+07:00</Time>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Bullet\bullet_1.xnb</Output>
+      <Time>2015-10-24T15:49:58.6963733+07:00</Time>
     </Item>
     <Item>
-<<<<<<< HEAD
-=======
-      <Source>Images\Button\continue.png</Source>
-      <Name>Images\Button\continue</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\continue.xnb</Output>
-      <Time>2015-11-07T15:24:17.7909636+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Button\new_game.png</Source>
-      <Name>Images\Button\new_game</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\new_game.xnb</Output>
-      <Time>2015-11-07T15:24:17.7909636+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Background\1.jpg</Source>
-      <Name>Images\Background\1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Background\1.xnb</Output>
-      <Time>2015-11-07T15:24:17.7909636+07:00</Time>
-    </Item>
-    <Item>
->>>>>>> 35d59e885628251c014e2008a0eff6271a932873
       <Source>Images\Enemy\enemy.png</Source>
       <Name>Images\Enemy\enemy</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Enemy\enemy.xnb</Output>
-      <Time>2015-11-07T15:24:17.8065888+07:00</Time>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Enemy\enemy.xnb</Output>
+      <Time>2015-10-27T21:50:34.0056678+07:00</Time>
     </Item>
     <Item>
       <Source>Images\Button\sound.png</Source>
@@ -78,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\sound.xnb</Output>
-      <Time>2015-11-07T15:24:17.8065888+07:00</Time>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\sound.xnb</Output>
+      <Time>2015-10-28T15:55:04.833899+07:00</Time>
     </Item>
     <Item>
       <Source>Images\Button\sound_off.png</Source>
@@ -87,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\sound_off.xnb</Output>
-      <Time>2015-11-07T15:24:17.8065888+07:00</Time>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\sound_off.xnb</Output>
+      <Time>2015-10-28T15:59:05.7181082+07:00</Time>
     </Item>
     <Item>
       <Source>Images\Button\HealthBar.png</Source>
@@ -96,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\HealthBar.xnb</Output>
-      <Time>2015-11-07T15:24:17.7909636+07:00</Time>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\HealthBar.xnb</Output>
+      <Time>2015-10-29T15:11:48.5883569+07:00</Time>
     </Item>
     <Item>
       <Source>Images\Background\space.png</Source>
@@ -105,43 +61,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Background\space.xnb</Output>
-      <Time>2015-11-07T15:24:17.7909636+07:00</Time>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Background\space.xnb</Output>
+      <Time>2015-10-29T15:36:03.3217068+07:00</Time>
     </Item>
     <Item>
-<<<<<<< HEAD
-=======
-      <Source>Images\Background\12.jpg</Source>
-      <Name>Images\Background\12</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Background\12.xnb</Output>
-      <Time>2015-11-07T15:24:17.7909636+07:00</Time>
-    </Item>
-    <Item>
->>>>>>> 35d59e885628251c014e2008a0eff6271a932873
       <Source>Images\Bullet\bullet_2.png</Source>
       <Name>Images\Bullet\bullet_2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Bullet\bullet_2.xnb</Output>
-      <Time>2015-11-07T15:24:17.7909636+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Player\player_2.png</Source>
-      <Name>Images\Player\player_2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-<<<<<<< HEAD
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Player\player_2.xnb</Output>
-      <Time>2015-11-07T19:28:14.9317768+07:00</Time>
-=======
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Player\player_2.xnb</Output>
-      <Time>2015-11-07T15:24:17.8065888+07:00</Time>
->>>>>>> 35d59e885628251c014e2008a0eff6271a932873
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Bullet\bullet_2.xnb</Output>
+      <Time>2015-10-30T14:50:53.4635603+07:00</Time>
     </Item>
     <Item>
       <Source>Images\Effect\effect_2.png</Source>
@@ -149,101 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Effect\effect_2.xnb</Output>
-      <Time>2015-11-07T15:24:17.8065888+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Global\cursor.png</Source>
-      <Name>Images\Global\cursor</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Global\cursor.xnb</Output>
-      <Time>2015-11-07T15:24:17.8065888+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Item\star.png</Source>
-      <Name>Images\Item\star</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Item\star.xnb</Output>
-      <Time>2015-11-07T15:24:17.8065888+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Player\player_3.png</Source>
-      <Name>Images\Player\player_3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Player\player_3.xnb</Output>
-      <Time>2015-11-07T15:24:17.8222097+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Font\fontMain.spritefont</Source>
-      <Name>Font\fontMain</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Font\fontMain.xnb</Output>
-      <Time>2015-11-07T15:24:17.7753897+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Sound\hover.wav</Source>
-      <Name>Sound\hover</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\hover.xnb</Output>
-      <Time>2015-11-07T15:24:17.8691062+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Sound\clicked.wav</Source>
-      <Name>Sound\clicked</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\clicked.xnb</Output>
-      <Time>2015-11-07T15:24:17.8691062+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Sound\explode.wav</Source>
-      <Name>Sound\explode</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\explode.xnb</Output>
-      <Time>2015-11-07T15:24:17.8691062+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Sound\shoot.wav</Source>
-      <Name>Sound\shoot</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\shoot.xnb</Output>
-      <Time>2015-11-07T15:24:17.8847301+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Sound\button-45.mp3</Source>
-      <Name>Sound\button-45</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\button-45.xnb</Output>
-      <Extra>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\button-45.wma</Extra>
-      <Time>2015-11-07T15:24:17.853463+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Sound\background1.mp3</Source>
-      <Name>Sound\background1</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-<<<<<<< HEAD
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\background1.xnb</Output>
-      <Extra>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\background1.wma</Extra>
-      <Time>2015-10-29T15:40:56.0648605+07:00</Time>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Effect\effect_2.xnb</Output>
+      <Time>2015-10-30T15:05:28.334604+07:00</Time>
     </Item>
     <Item>
       <Source>Images\Global\cursor.png</Source>
@@ -255,6 +92,33 @@
       <Time>2015-11-01T21:31:21.7982911+07:00</Time>
     </Item>
     <Item>
+      <Source>Images\Item\star.png</Source>
+      <Name>Images\Item\star</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Item\star.xnb</Output>
+      <Time>2015-11-06T15:16:46.2424545+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\player_1.png</Source>
+      <Name>Images\Player\player_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Player\player_1.xnb</Output>
+      <Time>2015-11-07T19:28:14.8607779+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\player_2.png</Source>
+      <Name>Images\Player\player_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Player\player_2.xnb</Output>
+      <Time>2015-11-07T19:28:14.9317768+07:00</Time>
+    </Item>
+    <Item>
       <Source>Images\Player\player_3.png</Source>
       <Name>Images\Player\player_3</Name>
       <Importer>TextureImporter</Importer>
@@ -262,51 +126,6 @@
       <Options>None</Options>
       <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Player\player_3.xnb</Output>
       <Time>2015-11-07T19:28:14.9387786+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Button\btn_continue.png</Source>
-      <Name>Images\Button\btn_continue</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\btn_continue.xnb</Output>
-      <Time>2015-11-08T19:51:51.153434+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Button\btn_exit.png</Source>
-      <Name>Images\Button\btn_exit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\btn_exit.xnb</Output>
-      <Time>2015-11-08T19:51:51.1584328+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Button\btn_help.png</Source>
-      <Name>Images\Button\btn_help</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\btn_help.xnb</Output>
-      <Time>2015-11-08T19:51:51.1634299+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Button\btn_newgame.png</Source>
-      <Name>Images\Button\btn_newgame</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\btn_newgame.xnb</Output>
-      <Time>2015-11-08T19:51:51.1684309+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Button\btn_optinon.png</Source>
-      <Name>Images\Button\btn_optinon</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\btn_optinon.xnb</Output>
-      <Time>2015-11-08T19:51:51.1944329+07:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\player_4.png</Source>
@@ -327,31 +146,22 @@
       <Time>2015-11-07T19:28:14.956781+07:00</Time>
     </Item>
     <Item>
-      <Source>Images\Background\bg_wellcome.png</Source>
-      <Name>Images\Background\bg_wellcome</Name>
+      <Source>Images\Background\bg_level1_1.png</Source>
+      <Name>Images\Background\bg_level1_1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Background\bg_wellcome.xnb</Output>
-      <Time>2015-11-08T20:14:27.98105+07:00</Time>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Background\bg_level1_1.xnb</Output>
+      <Time>2015-11-08T14:09:48.216214+07:00</Time>
     </Item>
     <Item>
-      <Source>Images\Background\bg_pause.png</Source>
-      <Name>Images\Background\bg_pause</Name>
+      <Source>Images\Background\bg_level1_2.png</Source>
+      <Name>Images\Background\bg_level1_2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Background\bg_pause.xnb</Output>
-      <Time>2015-11-08T19:52:48.4616614+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Button\btn_save.png</Source>
-      <Name>Images\Button\btn_save</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\btn_save.xnb</Output>
-      <Time>2015-11-08T19:51:51.2014382+07:00</Time>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Background\bg_level1_2.xnb</Output>
+      <Time>2015-11-08T14:09:48.4532211+07:00</Time>
     </Item>
     <Item>
       <Source>Images\Item\item_may_4.png</Source>
@@ -370,6 +180,15 @@
       <Options>None</Options>
       <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Item\item_may_5.xnb</Output>
       <Time>2015-11-08T15:14:59.8640734+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Item\item_may_6.png</Source>
+      <Name>Images\Item\item_may_6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Item\item_may_6.xnb</Output>
+      <Time>2015-11-08T15:14:59.9010713+07:00</Time>
     </Item>
     <Item>
       <Source>Images\Item\item_may_7.png</Source>
@@ -426,15 +245,6 @@
       <Time>2015-11-08T15:14:59.8030669+07:00</Time>
     </Item>
     <Item>
-      <Source>Images\Item\item_may_6.png</Source>
-      <Name>Images\Item\item_may_6</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Item\item_may_6.xnb</Output>
-      <Time>2015-11-08T15:14:59.9010713+07:00</Time>
-    </Item>
-    <Item>
       <Source>Images\Button\btn_back.png</Source>
       <Name>Images\Button\btn_back</Name>
       <Importer>TextureImporter</Importer>
@@ -462,6 +272,78 @@
       <Time>2015-11-08T19:51:51.1004443+07:00</Time>
     </Item>
     <Item>
+      <Source>Images\Button\btn_continue.png</Source>
+      <Name>Images\Button\btn_continue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\btn_continue.xnb</Output>
+      <Time>2015-11-08T19:51:51.153434+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Button\btn_exit.png</Source>
+      <Name>Images\Button\btn_exit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\btn_exit.xnb</Output>
+      <Time>2015-11-08T19:51:51.1584328+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Button\btn_help.png</Source>
+      <Name>Images\Button\btn_help</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\btn_help.xnb</Output>
+      <Time>2015-11-08T19:51:51.1634299+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Button\btn_newgame.png</Source>
+      <Name>Images\Button\btn_newgame</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\btn_newgame.xnb</Output>
+      <Time>2015-11-08T19:51:51.1684309+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Button\btn_optinon.png</Source>
+      <Name>Images\Button\btn_optinon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\btn_optinon.xnb</Output>
+      <Time>2015-11-08T19:51:51.1944329+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Button\btn_save.png</Source>
+      <Name>Images\Button\btn_save</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Button\btn_save.xnb</Output>
+      <Time>2015-11-08T19:51:51.2014382+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Background\bg_pause.png</Source>
+      <Name>Images\Background\bg_pause</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Background\bg_pause.xnb</Output>
+      <Time>2015-11-08T19:52:48.4616614+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Background\bg_wellcome.png</Source>
+      <Name>Images\Background\bg_wellcome</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Background\bg_wellcome.xnb</Output>
+      <Time>2015-11-08T20:14:27.98105+07:00</Time>
+    </Item>
+    <Item>
       <Source>Images\Effect\effect_player_1.png</Source>
       <Name>Images\Effect\effect_player_1</Name>
       <Importer>TextureImporter</Importer>
@@ -469,33 +351,6 @@
       <Options>None</Options>
       <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Effect\effect_player_1.xnb</Output>
       <Time>2015-11-08T20:22:40.21529+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Effect\effect_player_2.png</Source>
-      <Name>Images\Effect\effect_player_2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Effect\effect_player_2.xnb</Output>
-      <Time>2015-11-08T21:09:13.1133216+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Background\bg_level1_1.png</Source>
-      <Name>Images\Background\bg_level1_1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Background\bg_level1_1.xnb</Output>
-      <Time>2015-11-08T14:09:48.216214+07:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Background\bg_level1_2.png</Source>
-      <Name>Images\Background\bg_level1_2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Background\bg_level1_2.xnb</Output>
-      <Time>2015-11-08T14:09:48.4532211+07:00</Time>
     </Item>
     <Item>
       <Source>Images\Background\bg_level2_1.png</Source>
@@ -514,6 +369,15 @@
       <Options>None</Options>
       <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Background\bg_level2_2.xnb</Output>
       <Time>2015-11-08T21:04:41.175895+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Effect\effect_player_2.png</Source>
+      <Name>Images\Effect\effect_player_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Effect\effect_player_2.xnb</Output>
+      <Time>2015-11-08T21:09:13.1133216+07:00</Time>
     </Item>
     <Item>
       <Source>Images\Background\bg_level3_2.png</Source>
@@ -577,11 +441,71 @@
       <Options>None</Options>
       <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Images\Enemy\boss_1.xnb</Output>
       <Time>2015-11-08T21:28:50.3414139+07:00</Time>
-=======
-      <Output>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\background1.xnb</Output>
-      <Extra>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\background1.wma</Extra>
-      <Time>2015-11-07T15:24:17.853463+07:00</Time>
->>>>>>> 35d59e885628251c014e2008a0eff6271a932873
+    </Item>
+    <Item>
+      <Source>Font\fontMain.spritefont</Source>
+      <Name>Font\fontMain</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Font\fontMain.xnb</Output>
+      <Time>2015-11-07T01:02:44.4101564+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\hover.wav</Source>
+      <Name>Sound\hover</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\hover.xnb</Output>
+      <Time>2015-10-25T15:21:23.4151099+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\clicked.wav</Source>
+      <Name>Sound\clicked</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\clicked.xnb</Output>
+      <Time>2015-10-27T20:45:25.0308421+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\explode.wav</Source>
+      <Name>Sound\explode</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\explode.xnb</Output>
+      <Time>2015-10-29T15:40:55.9558508+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\shoot.wav</Source>
+      <Name>Sound\shoot</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\shoot.xnb</Output>
+      <Time>2015-10-29T15:48:12.6600201+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\button-45.mp3</Source>
+      <Name>Sound\button-45</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\button-45.xnb</Output>
+      <Extra>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\button-45.wma</Extra>
+      <Time>2015-10-25T15:34:03.662532+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\background1.mp3</Source>
+      <Name>Sound\background1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\background1.xnb</Output>
+      <Extra>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Sound\background1.wma</Extra>
+      <Time>2015-10-29T15:40:56.0648605+07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -590,10 +514,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1Content\</RootDirectory>
-      <LoggerRootDirectory>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\</LoggerRootDirectory>
-      <IntermediateDirectory>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>E:\Demo-game\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1Content\</RootDirectory>
+      <LoggerRootDirectory>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\</LoggerRootDirectory>
+      <IntermediateDirectory>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>E:\PROGRAMING\DoAn\CuocChienVuTru\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -622,7 +546,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-11-07T14:35:50.4142066+07:00</Value>
+        <Value>2015-09-18T06:39:31.0606871+07:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
